@@ -7,11 +7,6 @@ public class CameraRotaion : MonoBehaviour
     [SerializeField] [Range(10f, 100f)] private float _cameraRotationSpeed; 
     private Vector2 _rotationAxis;
 
-    private void Start()
-    {
-
-    }
-
     private void Update()
     {
         if (_rotationAxis != Vector2.zero)
