@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -11,6 +12,7 @@ public class BoatMovements : MonoBehaviour
         public float minWindAngle, targetSailsAngle, velocity;
     }
 
+    [SerializeField] private TMP_Text _AllureText;
     [SerializeField] private Transform _cameraPivot;
     [SerializeField] private Transform _rendererTransform;
     [SerializeField] [Range(0.1f, 60f)] private float _moveSpeed;
@@ -54,9 +56,9 @@ public class BoatMovements : MonoBehaviour
         float boatAngle = _rendererTransform.localEulerAngles.y - WindManager.instance._windAngle.y;
         for (int i = 0; i < allures.Length; i++)
         {
-            if (boatAngle > allures[i].minWindAngle)
+            if (boatAngle < 180 - allures[i].minWindAngle || boatAngle > 180 + allures[i].minWindAngle)
             {
-                Debug.Log(allures[i].name);
+                _AllureText.text = allures[i].name;
                 return;
             }
         }
