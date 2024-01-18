@@ -1,17 +1,9 @@
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class BoatMovements : MonoBehaviour
 {
-    [SerializeField] private Transform _cameraPivot;
-    [SerializeField] private Transform _rendererTransform;
-    [SerializeField] [Range(0.1f, 60f)] private float _moveSpeed;
-    [SerializeField] [Range(0.1f, 60f)] private float _rotationSpeed;
-    public WindAllure[] allures;
-
-    private Vector3 _rotationAxis;
-    private bool _isMoving;
-
     [System.Serializable]
     public struct WindAllure
     {
@@ -19,11 +11,25 @@ public class BoatMovements : MonoBehaviour
         public float minWindAngle, targetSailsAngle, velocity;
     }
 
+    [SerializeField] private Transform _cameraPivot;
+    [SerializeField] private Transform _rendererTransform;
+    [SerializeField] [Range(0.1f, 60f)] private float _moveSpeed;
+    [SerializeField] [Range(0.1f, 60f)] private float _rotationSpeed;
+    [SerializeField] private WindAllure[] allures;
+    [SerializeField] private UnityEvent _onMove;
+
+    private Vector3 _rotationAxis;
+    private bool _isMoving;
+    private float _speedAllure;
+
 
     private void Update()
     {
         // Rotation
         _rendererTransform.localEulerAngles += new Vector3(0, _rotationAxis.x * _rotationSpeed * Time.deltaTime, 0);
+
+        // Check Allure
+        CheckBoatAllure();
 
         // Move
         if (_isMoving)
@@ -40,12 +46,19 @@ public class BoatMovements : MonoBehaviour
     public void MoveBoat(InputAction.CallbackContext callback)
     {
         if (callback.started)
+            _onMove.Invoke();
+    }
+
+    public void CheckBoatAllure()
+    {
+        float boatAngle = _rendererTransform.localEulerAngles.y - WindManager.instance._windAngle.y;
+        for (int i = 0; i < allures.Length; i++)
         {
-            _isMoving = true;
-        }
-        if (callback.canceled)
-        {
-            _isMoving = false;
+            if (boatAngle > allures[i].minWindAngle)
+            {
+                Debug.Log(allures[i].name);
+                return;
+            }
         }
     }
 }

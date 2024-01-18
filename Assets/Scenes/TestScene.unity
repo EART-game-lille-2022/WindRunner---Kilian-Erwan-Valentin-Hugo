@@ -132,6 +132,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 382822557}
+  - component: {fileID: 382822558}
   m_Layer: 0
   m_Name: WindManager
   m_TagString: Untagged
@@ -154,6 +155,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &382822558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 382822556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d15b56b2fe7bf740893833975a4fdc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _windAngle: {x: 0, y: 0, z: 0}
+  _cameraPivot: {fileID: 1481985929}
+  _windDuration: 2
+  _onWindEnd:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -400,6 +419,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1481985929 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5726451023186971467, guid: b762c306fffb2d4438a0a3ef556f2872,
+    type: 3}
+  m_PrefabInstance: {fileID: 773766977062518838}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1830279775
 GameObject:
   m_ObjectHideFlags: 0
@@ -616,8 +641,38 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 302603311905305844, guid: b762c306fffb2d4438a0a3ef556f2872,
         type: 3}
-      propertyPath: _rotationSpeed
-      value: 5
+      propertyPath: _onMove.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 302603311905305844, guid: b762c306fffb2d4438a0a3ef556f2872,
+        type: 3}
+      propertyPath: _onMove.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 302603311905305844, guid: b762c306fffb2d4438a0a3ef556f2872,
+        type: 3}
+      propertyPath: _onMove.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 382822558}
+    - target: {fileID: 302603311905305844, guid: b762c306fffb2d4438a0a3ef556f2872,
+        type: 3}
+      propertyPath: _onMove.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 302603311905305844, guid: b762c306fffb2d4438a0a3ef556f2872,
+        type: 3}
+      propertyPath: _onMove.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: GenerateWind
+      objectReference: {fileID: 0}
+    - target: {fileID: 302603311905305844, guid: b762c306fffb2d4438a0a3ef556f2872,
+        type: 3}
+      propertyPath: _onMove.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: WindManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 302603311905305844, guid: b762c306fffb2d4438a0a3ef556f2872,
+        type: 3}
+      propertyPath: _onMove.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 1155841817467533536, guid: b762c306fffb2d4438a0a3ef556f2872,
         type: 3}
@@ -704,9 +759,9 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 410087041}
+  - {fileID: 382822557}
   - {fileID: 832575519}
   - {fileID: 1855539611}
   - {fileID: 1830279779}
   - {fileID: 430297013}
   - {fileID: 773766977062518838}
-  - {fileID: 382822557}
