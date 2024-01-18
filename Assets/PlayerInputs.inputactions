@@ -101,6 +101,17 @@
                     "isPartOfComposite": false
                 },
                 {
+                    "name": "",
+                    "id": "07c89170-dce4-432d-9feb-c02d403e9e59",
+                    "path": "<Touchscreen>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CameraRotation",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
                     "name": "2D Vector",
                     "id": "0f73b03f-ede7-4eba-a18a-117eea0699e5",
                     "path": "2DVector",
