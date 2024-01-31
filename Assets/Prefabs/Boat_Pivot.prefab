@@ -178,6 +178,7 @@ GameObject:
   - component: {fileID: 881259559399333743}
   - component: {fileID: 6374470573285666400}
   - component: {fileID: 302603311905305844}
+  - component: {fileID: 5097047469941311939}
   m_Layer: 0
   m_Name: Boat_Pivot
   m_TagString: Untagged
@@ -307,11 +308,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3ac8766a9c85744796c2dd40281a7e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _AllureText: {fileID: 0}
   _cameraPivot: {fileID: 5726451023186971467}
-  _rendererTransform: {fileID: 558611909423248436}
+  _rendererTransform: {fileID: 5768222354694623368}
   _moveSpeed: 5
   _rotationSpeed: 5
+  _onMove:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: WindManager, Assembly-CSharp
+        m_MethodName: GenerateWind
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &5097047469941311939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1155841817467533536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17c8d29c6055a68438e3daa05ca08990, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _allureText: {fileID: 0}
+  _orientationText: {fileID: 0}
+  _multiplierText: {fileID: 0}
+  _sail: {fileID: 3225048596164198566}
   allures:
   - name: Vent arriere
     minWindAngle: 150
@@ -335,23 +366,9 @@ MonoBehaviour:
     velocity: 0.25
   - name: Vent debout
     minWindAngle: 0
-    targetSailsAngle: 0
-    velocity: 0
-  _onMove:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: WindManager, Assembly-CSharp
-        m_MethodName: GenerateWind
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+    targetSailsAngle: 1
+    velocity: 0.1
+  _multiplier: 0
 --- !u!1 &2145900326979715910
 GameObject:
   m_ObjectHideFlags: 0
@@ -549,6 +566,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6832051260994542182}
+  - component: {fileID: 3225048596164198566}
   m_Layer: 0
   m_Name: Mat
   m_TagString: Untagged
@@ -573,6 +591,20 @@ Transform:
   - {fileID: 1788044336831596348}
   m_Father: {fileID: 5768222354694623368}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!114 &3225048596164198566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3622274065902029599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae9ed7b01b12df8489e28bb9bbc0cf00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rotationSpeed: 15
+  currentAngle: 90
 --- !u!1 &4319650846204950595
 GameObject:
   m_ObjectHideFlags: 0

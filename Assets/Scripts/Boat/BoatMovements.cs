@@ -5,62 +5,33 @@ using UnityEngine.InputSystem;
 
 public class BoatMovements : MonoBehaviour
 {
-    [System.Serializable]
-    public struct WindAllure
-    {
-        public string name;
-        public float minWindAngle, targetSailsAngle, velocity;
-    }
-
-    [SerializeField] private TMP_Text _AllureText;
     [SerializeField] private Transform _cameraPivot;
     [SerializeField] private Transform _rendererTransform;
-    [SerializeField] [Range(0.1f, 60f)] private float _moveSpeed;
     [SerializeField] [Range(0.1f, 60f)] private float _rotationSpeed;
-    [SerializeField] private WindAllure[] allures;
-    [SerializeField] private UnityEvent _onMove;
 
     private Vector3 _rotationAxis;
-    private bool _isMoving;
-    private float _speedAllure;
+    private AllureManager _allureManager;
+    private float _speedMultiplier;
+    private float _moveIntensity;
 
+    private void Start()
+    {
+        _allureManager = GetComponent<AllureManager>();
+    }
 
     private void Update()
     {
         // Rotation
         _rendererTransform.localEulerAngles += new Vector3(0, _rotationAxis.x * _rotationSpeed * Time.deltaTime, 0);
 
-        // Check Allure
-        CheckBoatAllure();
-
         // Move
-        if (_isMoving)
-        {
-            transform.position += _rendererTransform.forward * _moveSpeed * Time.deltaTime;
-        }
+        _moveIntensity = WindManager.instance.windIntensity;
+        _speedMultiplier = _allureManager.GetBoatSpeed(_rendererTransform);
+        transform.position += _rendererTransform.forward * _moveIntensity * _speedMultiplier * Time.deltaTime;
     }
 
     public void RotateBoat(InputAction.CallbackContext callback)
     {
         _rotationAxis = callback.ReadValue<Vector2>();
-    }
-
-    public void MoveBoat(InputAction.CallbackContext callback)
-    {
-        if (callback.started)
-            _onMove.Invoke();
-    }
-
-    public void CheckBoatAllure()
-    {
-        float boatAngle = _rendererTransform.localEulerAngles.y - WindManager.instance._windAngle.y;
-        for (int i = 0; i < allures.Length; i++)
-        {
-            if (boatAngle < 180 - allures[i].minWindAngle || boatAngle > 180 + allures[i].minWindAngle)
-            {
-                _AllureText.text = allures[i].name;
-                return;
-            }
-        }
     }
 }

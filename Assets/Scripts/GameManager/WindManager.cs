@@ -1,15 +1,10 @@
 using UnityEngine;
-using UnityEngine.Events;
 
 public class WindManager : MonoBehaviour
 {
     public static WindManager instance;
-    public Vector3 _windAngle;
     [SerializeField] private Transform _cameraPivot;
-    [SerializeField] private float _windDuration;
-    [SerializeField] private UnityEvent _onWindEnd;
-
-    private float _windTimeLeft;
+    public float windIntensity = 2;
 
     private void Awake()
     {
@@ -18,19 +13,18 @@ public class WindManager : MonoBehaviour
 
     private void Update()
     {
-        if (_windTimeLeft > 0)
+        if(Input.GetKey(KeyCode.Space))
         {
-            _windTimeLeft -= Time.deltaTime;
-            if (_windTimeLeft <= 0)
+            transform.localEulerAngles = _cameraPivot.localEulerAngles;
+            if (windIntensity <= 0)
             {
-                _onWindEnd.Invoke();
+                windIntensity += 20;
+            } else
+            {
+                windIntensity += 1f / windIntensity;
             }
         }
-    }
-
-    public void GenerateWind()
-    {
-        _windAngle = _cameraPivot.localEulerAngles;
-        _windTimeLeft = _windDuration;
+        windIntensity -= Time.deltaTime * 1;
+        windIntensity = Mathf.Max(windIntensity, 0);
     }
 }
