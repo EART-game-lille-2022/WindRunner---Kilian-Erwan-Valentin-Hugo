@@ -13,15 +13,17 @@ public class AllureManager : MonoBehaviour
     [SerializeField] private TMP_Text _allureText;
     [SerializeField] private TMP_Text _orientationText;
     [SerializeField] private TMP_Text _multiplierText;
-    //[SerializeField] private Transform _sailPivot;
     [SerializeField] private SailRotation _sail;
     [SerializeField] private WindAllure[] allures;
-    private WindAllure current;
+
+    public WindAllure current;
     private float _multiplier;
+    public float intensity;
 
     private void Start()
     {
-        current = allures[0];  
+        current = allures[0];
+        CheckSailOrientation();
     }
 
     public float GetBoatSpeed(Transform objectTransform)
@@ -35,7 +37,13 @@ public class AllureManager : MonoBehaviour
     {
         Vector3 direction = objectTransform.transform.forward;
         direction.y = 0;
-        float boatAngle = Vector3.Angle(direction, WindManager.instance.transform.forward);
+        Vector3 windForward;
+        WindPoint.GetWeightAt(objectTransform.position, out intensity, out windForward);
+        windForward.y = 0;
+
+        Debug.DrawRay(objectTransform.position, windForward * intensity * 4, Color.red);
+
+        float boatAngle = Vector3.Angle(direction, windForward);
 
         for (int i = 0; i < allures.Length; i++)
         {
@@ -60,7 +68,9 @@ public class AllureManager : MonoBehaviour
             float maxRange = 90 - current.targetSailsAngle;
             _multiplier = inRangeAngle / maxRange;
             _multiplier = 1 - _multiplier;
-        } else
+            if (_multiplier <= 0) { _multiplier = 0.01f; }
+        }
+        else
         {
             _multiplier = sailAngle / current.targetSailsAngle;
         }
