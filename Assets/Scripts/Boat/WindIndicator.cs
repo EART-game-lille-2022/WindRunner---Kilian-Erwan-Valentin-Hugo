@@ -4,8 +4,8 @@ public class WindIndicator : MonoBehaviour
 {
     [SerializeField] private Transform _windManagerTransform;
 
-    private void Update()
+    public void RotateIndicator(Vector3 windDirection)
     {
-        transform.localEulerAngles = _windManagerTransform.localEulerAngles;
+        transform.rotation = Quaternion.LookRotation(windDirection);
     }
 }

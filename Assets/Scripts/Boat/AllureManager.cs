@@ -17,11 +17,13 @@ public class AllureManager : MonoBehaviour
     [SerializeField] private WindAllure[] allures;
 
     public WindAllure current;
+    private WindIndicator _indicator;
     private float _multiplier;
     public float intensity;
 
     private void Start()
     {
+        _indicator = GetComponentInChildren<WindIndicator>();
         current = allures[0];
         CheckSailOrientation();
     }
@@ -41,7 +43,8 @@ public class AllureManager : MonoBehaviour
         WindPoint.GetWeightAt(objectTransform.position, out intensity, out windForward);
         windForward.y = 0;
 
-        Debug.DrawRay(objectTransform.position, windForward * intensity * 4, Color.red);
+        //Debug.DrawRay(objectTransform.position, windForward * intensity * 4, Color.red);
+        _indicator.RotateIndicator(windForward);
 
         float boatAngle = Vector3.Angle(direction, windForward);
 
