@@ -311,7 +311,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _cameraPivot: {fileID: 5726451023186971467}
   _rendererTransform: {fileID: 5768222354694623368}
-  _rotationSpeed: 5
+  _rotationSpeed: 30
 --- !u!114 &5097047469941311939
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -353,6 +353,12 @@ MonoBehaviour:
     minWindAngle: 0
     targetSailsAngle: 1
     velocity: 0.1
+  current:
+    name: 
+    minWindAngle: 0
+    targetSailsAngle: 0
+    velocity: 0
+  intensity: 0
 --- !u!65 &5264279269080926293
 BoxCollider:
   m_ObjectHideFlags: 0

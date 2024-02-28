@@ -6,15 +6,6 @@
             "id": "7c9180f2-b6fc-41e2-9950-013780ebbdb4",
             "actions": [
                 {
-                    "name": "CameraRotation",
-                    "type": "Value",
-                    "id": "e1328b4e-7647-4e87-94fc-9283b87b5739",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
                     "name": "Rotate",
                     "type": "Value",
                     "id": "6e05ae37-b448-45d7-8dfe-0c077bd6b429",
@@ -34,83 +25,6 @@
                 }
             ],
             "bindings": [
-                {
-                    "name": "KeyBoard",
-                    "id": "f1b86014-ef7e-403f-99fa-1a7b531f930e",
-                    "path": "2DVector",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "CameraRotation",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "up",
-                    "id": "c34a250f-3411-4e85-8941-68af208a3b55",
-                    "path": "<Keyboard>/upArrow",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "CameraRotation",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "down",
-                    "id": "1128614a-8ba7-4881-8ae4-277cd2fc9382",
-                    "path": "<Keyboard>/downArrow",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "CameraRotation",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "left",
-                    "id": "6012e52d-b07f-43d5-9468-9abe0025f4f1",
-                    "path": "<Keyboard>/leftArrow",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "CameraRotation",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "right",
-                    "id": "4d25ecda-a3e7-49e3-9c99-0f675e8fdf44",
-                    "path": "<Keyboard>/rightArrow",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "CameraRotation",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "",
-                    "id": "c66e8644-5baa-45c8-ad74-50da1b991248",
-                    "path": "<Mouse>/delta",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "CameraRotation",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "07c89170-dce4-432d-9feb-c02d403e9e59",
-                    "path": "<Touchscreen>/delta",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "CameraRotation",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
                 {
                     "name": "2D Vector",
                     "id": "0f73b03f-ede7-4eba-a18a-117eea0699e5",
@@ -147,7 +61,7 @@
                 {
                     "name": "left",
                     "id": "aa75d634-2c15-4f63-afdf-b2811234c9c0",
-                    "path": "<Keyboard>/a",
+                    "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

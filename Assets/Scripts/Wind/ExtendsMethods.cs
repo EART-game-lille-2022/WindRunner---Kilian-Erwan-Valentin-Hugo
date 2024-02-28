@@ -39,4 +39,9 @@ public static class ExtendsMethods
     //{
     //    return list[Random.Range(0, list.Count)];
     //}
+
+    public static float Remap0T(this float f, float max)
+    {
+        return f * max;
+    }
 }

@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class AllureManager : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class AllureManager : MonoBehaviour
     [SerializeField] private TMP_Text _multiplierText;
     [SerializeField] private SailRotation _sail;
     [SerializeField] private WindAllure[] allures;
+    [SerializeField] private UnityEvent _onCurrentAllureChange;
 
     public WindAllure current;
     private WindIndicator _indicator;
@@ -39,24 +41,28 @@ public class AllureManager : MonoBehaviour
     {
         Vector3 direction = objectTransform.transform.forward;
         direction.y = 0;
-        Vector3 windForward;
-        WindPoint.GetWeightAt(objectTransform.position, out intensity, out windForward);
-        windForward.y = 0;
-
-        //Debug.DrawRay(objectTransform.position, windForward * intensity * 4, Color.red);
-        _indicator.RotateIndicator(windForward);
-
-        float boatAngle = Vector3.Angle(direction, windForward);
+        float boatAngle = Vector3.Angle(direction, GetWindForward(objectTransform));
 
         for (int i = 0; i < allures.Length; i++)
         {
             if (boatAngle < 180 - allures[i].minWindAngle)
             {
                 _allureText.text = allures[i].name;
-                current = allures[i];
+                ChangeAllure(i);
                 return;
             }
         }
+    }
+
+    private Vector3 GetWindForward(Transform objectTransform)
+    {
+        Vector3 windForward;
+        WindPoint.GetWeightAt(objectTransform.position, out intensity, out windForward);
+        windForward.y = 0;
+
+        //Debug.DrawRay(objectTransform.position, windForward * intensity * 4, Color.red);
+        _indicator.RotateIndicator(windForward);
+        return windForward;
     }
 
     private void CheckSailOrientation()
@@ -85,5 +91,17 @@ public class AllureManager : MonoBehaviour
         float moveSpeed = current.velocity * _multiplier;
         _multiplierText.text = moveSpeed.ToString();
         return moveSpeed;
+    }
+
+    public WindAllure GetCurrentAllure()
+    {
+        return current;
+    }
+
+    private void ChangeAllure(int i)
+    {
+        if (current.name == allures[i].name) { return; }
+        current = allures[i];
+        _onCurrentAllureChange.Invoke();
     }
 }
