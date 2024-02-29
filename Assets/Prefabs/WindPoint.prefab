@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2593645691674615507}
   - component: {fileID: 2633031448245548138}
   - component: {fileID: 859600841131960193}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 3824946299927902568}
   - component: {fileID: 2774305443065657370}
   - component: {fileID: 1358186743952452207}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Fwd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -176,7 +176,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7707373096758976754}
   - component: {fileID: 8308023232930766178}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: WindPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -212,4 +212,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c1f57ce27fe1404eb8084fb587c2eab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  value: 4
+  windIntensity: 1
+  decreaseOverTime: -1
