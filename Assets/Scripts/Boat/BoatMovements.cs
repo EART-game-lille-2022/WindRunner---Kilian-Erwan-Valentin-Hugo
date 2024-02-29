@@ -21,10 +21,8 @@ public class BoatMovements : MonoBehaviour
 
     private void Update()
     {
-        // Rotation
         _rendererTransform.localEulerAngles += new Vector3(0, _rotationAxis.x * _rotationSpeed * Time.deltaTime, 0);
 
-        // Move
         SetMoveSpeed();
         _moveIntensity = _allureManager.intensity;
         _speedMultiplier = _allureManager.GetBoatSpeed(_rendererTransform);

@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: 6393572538656093243, guid: a3faf26caab25604ca7aea54b1129824,
         type: 3}
       propertyPath: m_Name
-      value: WindPoint (4) Variant
+      value: PlayerWindPoint
       objectReference: {fileID: 0}
     - target: {fileID: 7707373096758976754, guid: a3faf26caab25604ca7aea54b1129824,
         type: 3}
@@ -66,7 +66,7 @@ PrefabInstance:
     - target: {fileID: 8308023232930766178, guid: a3faf26caab25604ca7aea54b1129824,
         type: 3}
       propertyPath: windIntensity
-      value: 4
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8308023232930766178, guid: a3faf26caab25604ca7aea54b1129824,
         type: 3}
