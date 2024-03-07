@@ -6,11 +6,11 @@ public class MissionStart : MonoBehaviour
 {
     public S_Mission missionStart;
 
-    // IEnumerator Start()
-    // {
-    //     yield return new WaitForSeconds(5);
-    //     missionStart.StartQuest();
-    // }
+    IEnumerator Start()
+    {
+        yield return new WaitForSeconds(5);
+        StartQuest();
+    }
 
     public void StartQuest()
     {
