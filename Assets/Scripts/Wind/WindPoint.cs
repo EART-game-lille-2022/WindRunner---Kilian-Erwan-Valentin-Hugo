@@ -6,6 +6,7 @@ public class WindPoint : MonoBehaviour
 {
     public static List<WindPoint> points = new List<WindPoint>();
     public float windIntensity = 1;
+    [SerializeField] [Range(1, 100)] private float _maxWindIntensity = 50;
 
     public float decreaseOverTime = -1;
 
@@ -57,6 +58,11 @@ public class WindPoint : MonoBehaviour
 
     private void Update()
     {
+        if (windIntensity >= _maxWindIntensity) 
+        { 
+            windIntensity = _maxWindIntensity; 
+        }
+
         if(Application.isPlaying && decreaseOverTime > 0)
         {
             windIntensity -= Time.deltaTime * decreaseOverTime;

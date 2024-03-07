@@ -1,3 +1,5 @@
+using System.Security.Cryptography;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -26,7 +28,8 @@ public class BoatMovements : MonoBehaviour
         SetMoveSpeed();
         _moveIntensity = _allureManager.intensity;
         _speedMultiplier = _allureManager.GetBoatSpeed(_rendererTransform);
-        transform.position += _moveIntensity * _moveSpeed * _speedMultiplier * Time.deltaTime * _rendererTransform.forward;
+        float moveSpeed = (_moveIntensity * _moveSpeed * _speedMultiplier * Time.deltaTime).Abs();
+        transform.position += moveSpeed * _rendererTransform.forward;
     }
 
     public void RotateBoat(InputAction.CallbackContext callback)
