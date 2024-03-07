@@ -2630,7 +2630,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1838137595}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -3256,6 +3256,11 @@ PrefabInstance:
       propertyPath: _onCurrentAllureChange.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1390563350}
+    - target: {fileID: 6591495491017867519, guid: b762c306fffb2d4438a0a3ef556f2872,
+        type: 3}
+      propertyPath: m_Name
+      value: Mesh_Bateau
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
