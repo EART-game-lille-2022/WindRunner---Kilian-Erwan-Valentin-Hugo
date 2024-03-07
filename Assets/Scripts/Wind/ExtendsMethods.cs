@@ -44,4 +44,24 @@ public static class ExtendsMethods
     {
         return f * max;
     }
+
+    public static float Cos(this float f)
+    {
+        return Mathf.Cos(f);
+    }
+
+    public static float SquaredCos(this float f)
+    {
+        return Mathf.Cos(f) * Mathf.Cos(f);
+    }
+
+    public static float Sin(this float f)
+    {
+        return Mathf.Sin(f);
+    }
+
+    public static float SquaredSin(this float f)
+    {
+        return Mathf.Sin(f) * Mathf.Sin(f);
+    }
 }
