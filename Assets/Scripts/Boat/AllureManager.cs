@@ -12,8 +12,8 @@ public class AllureManager : MonoBehaviour
     }
 
     [SerializeField] private TMP_Text _allureText;
-    [SerializeField] private TMP_Text _orientationText;
-    [SerializeField] private TMP_Text _multiplierText;
+    //[SerializeField] private TMP_Text _orientationText;
+    //[SerializeField] private TMP_Text _multiplierText;
     [SerializeField] private SailRotation _sail;
     [SerializeField] private WindAllure[] allures;
     [SerializeField] private UnityEvent _onCurrentAllureChange;
@@ -47,7 +47,7 @@ public class AllureManager : MonoBehaviour
         {
             if (boatAngle < 180 - allures[i].minWindAngle)
             {
-                _allureText.text = allures[i].name;
+                if (_allureText != null) { _allureText.text = allures[i].name; }
                 ChangeAllure(i);
                 return;
             }
@@ -83,13 +83,13 @@ public class AllureManager : MonoBehaviour
         {
             _multiplier = sailAngle / current.targetSailsAngle;
         }
-        _orientationText.text = sailAngle.ToString() + " ; " + _multiplier.ToString();
+        //_orientationText.text = sailAngle.ToString() + " ; " + _multiplier.ToString();
     }
 
     private float GetBoatMoveSpeed()
     {
         float moveSpeed = current.velocity * _multiplier;
-        _multiplierText.text = moveSpeed.ToString();
+        //_multiplierText.text = moveSpeed.ToString();
         return moveSpeed;
     }
 
@@ -102,6 +102,6 @@ public class AllureManager : MonoBehaviour
     {
         if (current.name == allures[i].name) { return; }
         current = allures[i];
-        _onCurrentAllureChange.Invoke();
+        if (_onCurrentAllureChange != null) _onCurrentAllureChange.Invoke();
     }
 }
