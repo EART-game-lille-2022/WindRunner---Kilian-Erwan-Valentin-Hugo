@@ -8,6 +8,9 @@ public class Collectible : MonoBehaviour
     
     public string objectID;
 
+    public Transform objectToFollow;
+    public Vector3 offset;
+
     void Awake() {
         collectibles.Add(this);
         gameObject.SetActive(false);
@@ -18,6 +21,6 @@ public class Collectible : MonoBehaviour
     }
     void Update()
     { 
-        // distance avec le joueur -> finish
+        transform.position = objectToFollow.position + offset;
     }
 }
