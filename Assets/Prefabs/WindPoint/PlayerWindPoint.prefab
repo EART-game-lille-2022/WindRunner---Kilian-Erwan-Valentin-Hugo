@@ -66,17 +66,17 @@ PrefabInstance:
     - target: {fileID: 8308023232930766178, guid: a3faf26caab25604ca7aea54b1129824,
         type: 3}
       propertyPath: windIntensity
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 8308023232930766178, guid: a3faf26caab25604ca7aea54b1129824,
-        type: 3}
-      propertyPath: decreaseOverTime
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8308023232930766178, guid: a3faf26caab25604ca7aea54b1129824,
         type: 3}
+      propertyPath: decreaseOverTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8308023232930766178, guid: a3faf26caab25604ca7aea54b1129824,
+        type: 3}
       propertyPath: _maxWindIntensity
-      value: 50
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
