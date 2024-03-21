@@ -12,9 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1e2efc2c551d544986fd214911ce8ae, type: 3}
   m_Name: Mission_First
   m_EditorClassIdentifier: 
-  missionName: Collect Lewis lost panties
+  missionName: Collect QuestObject
   isUnlocked: 1
-  dialogue: {fileID: 11400000, guid: 56b08dff52c63fe4db11217ed041cdf7, type: 2}
   unlockedOnFinish:
   - {fileID: 11400000, guid: b869d4cd9faf3084dacb0e036fb61a97, type: 2}
   objectifList:

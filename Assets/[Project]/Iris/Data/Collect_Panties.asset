@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1def13677ce157240ac012b591eb5de2, type: 3}
   m_Name: Collect_Panties
   m_EditorClassIdentifier: 
-  objectID: Panties
+  objectID: QuestObject
