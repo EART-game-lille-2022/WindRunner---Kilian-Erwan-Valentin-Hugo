@@ -5,6 +5,34 @@ public class SinkedBoatController : MonoBehaviour, IPointerDownHandler, IPointer
 {
     [SerializeField] private RadialFillManager _radialFillManager;
     [SerializeField] private float _minTowDistance;
+    [SerializeField] private float _fillSpeed;
+    private bool _isFilling;
+    private bool _isAttach;
+    private float _fillAmount;
+
+    private void Update()
+    {
+        if (_isFilling)
+        {
+            _fillAmount += _fillSpeed * Time.deltaTime;
+            _radialFillManager.UpdateFill(_fillAmount);
+            if (_fillAmount >= 1)
+            {
+                _isFilling = false;
+                _fillAmount = 0;
+                _radialFillManager.UpdateFill(_fillAmount);
+                if (_isAttach == false)
+                {
+                    TrailerManager.instance.AttachObject(transform);
+                    _isAttach = true;
+                } else
+                {
+                    TrailerManager.instance.DetachObject();
+                    _isAttach = false;
+                }
+            }
+        }
+    }
 
     public void OnPointerDown(PointerEventData eventData)
     {
@@ -15,17 +43,11 @@ public class SinkedBoatController : MonoBehaviour, IPointerDownHandler, IPointer
             Debug.Log("Distance to high : " + distance);
             return; 
         }
-        //_radialFillManager.UpdateFill();
-        TrailerManager.instance.AttachObject(transform);
+        _isFilling = true;
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        _radialFillManager.ReleaseFill();
-    }
-
-    private void AttachToBoat()
-    {
-        
+        _isFilling = false;
     }
 }
