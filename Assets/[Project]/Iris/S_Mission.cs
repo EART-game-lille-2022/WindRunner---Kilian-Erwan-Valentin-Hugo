@@ -6,11 +6,12 @@ using UnityEngine.InputSystem.Interactions;
 [CreateAssetMenu(fileName = "Mission_", menuName = "Data/Mission", order = 1)]
 public class S_Mission : ScriptableObject
 {
+    public static List<S_Mission> missionsEnCours = new List<S_Mission>();
     public string missionName; //Nomer la mission en public
     public bool isUnlocked = false; //De base, la mission n'est pas debloqué
    // public ScriptableDialogue dialogue;
 
-    public S_Mission[] unlockedOnFinish; //Quete debloqué lors de complition de cette quete
+    public S_Mission[] unlockedOnFinish; //Quete debloqué lors de complétion de cette quete
 
     public S_MissionObjective[] objectifList;   //Entré du scriptable object qui comprend les objet a recuperer pour la quete
 
@@ -20,6 +21,7 @@ public class S_Mission : ScriptableObject
         foreach(S_MissionObjective objectif in objectifList) {
             objectif.Start();
         }
+        if(!missionsEnCours.Contains(this)) missionsEnCours.Add(this);
     }
     public bool CheckFinish() {
         foreach(S_MissionObjective objectif in objectifList) {
