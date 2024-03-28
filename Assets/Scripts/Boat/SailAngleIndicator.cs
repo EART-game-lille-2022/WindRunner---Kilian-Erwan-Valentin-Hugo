@@ -15,7 +15,6 @@ public class SailAngleIndicator : MonoBehaviour
     public void ShowOptimalAngle()
     {
         float sailAngle = _allureManager.GetCurrentAllure().targetSailsAngle;
-        Debug.Log(sailAngle);
         _indicatorPosition = sailAngle.Remap(0, 90, -400, 400);
         _rectTransform.DOAnchorPosX(_indicatorPosition, 2);
     } 

@@ -6,7 +6,7 @@ public class BoatMovements : MonoBehaviour
     [SerializeField] private Transform _rendererTransform;
     [SerializeField][Range(0.1f, 60f)] private float _baseMoveSpeed;
     [Header("Physics Data")]
-    [SerializeField][Range(100f, 200f)] private float _rotationSpeed;
+    [SerializeField][Range(100f, 400f)] private float _rotationSpeed;
     [SerializeField] private float _forceMultiplier;
 
     private Rigidbody _rigidbody;
