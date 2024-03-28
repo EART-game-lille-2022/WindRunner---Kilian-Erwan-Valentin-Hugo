@@ -1,20 +1,22 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TrailerManager : MonoBehaviour
 {
     public static TrailerManager instance;
-    [SerializeField] HingeJoint _joint;
-    private Transform _connectedTransform;
+
+    //[SerializeField] HingeJoint _joint;
     [SerializeField] private Transform _towPoint;
+    [SerializeField] private Image _radialFill;
+    
+    private Transform _connectedTransform;
 
     private void Awake()
     {
-        if (instance != null) {
+        if (instance != null)
             Destroy(gameObject);
-        } else
-        {
+        else
             instance = this;
-        }
     }
 
     private void Update()

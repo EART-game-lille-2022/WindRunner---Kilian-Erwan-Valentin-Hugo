@@ -4,6 +4,7 @@ public class WindSpawner : MonoBehaviour
 {
     public GameObject prefab;
     public Transform refPosRot;
+    public Transform _spawnPosition;
 
     private void Update()
     {
@@ -11,7 +12,7 @@ public class WindSpawner : MonoBehaviour
         {
             Vector3 forward = refPosRot.forward;
             forward.y = 0;
-            Instantiate(prefab, refPosRot.position, Quaternion.LookRotation(forward));
+            Instantiate(prefab, _spawnPosition.position, Quaternion.LookRotation(forward));
         }
     }
 }
