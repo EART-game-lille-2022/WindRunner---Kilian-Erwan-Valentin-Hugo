@@ -22,12 +22,12 @@ public class BoatMovements : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         _speedMultiplier = _allureManager.GetBoatSpeed(transform);
-        float moveSpeed = (_baseMoveSpeed * _speedMultiplier * Time.deltaTime).Abs();
+        float moveSpeed = (_baseMoveSpeed * _speedMultiplier * Time.fixedDeltaTime).Abs();
 
-        _rigidbody.AddTorque(0, _rotationAxis.x * _rotationSpeed * Time.deltaTime, 0);
+        _rigidbody.AddTorque(0, _rotationAxis.x * _rotationSpeed * Time.fixedDeltaTime, 0);
         _rigidbody.AddForce(_forceMultiplier * moveSpeed * _rendererTransform.forward);
     }
 
