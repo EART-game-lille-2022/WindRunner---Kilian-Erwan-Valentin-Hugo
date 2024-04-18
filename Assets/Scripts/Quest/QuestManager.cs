@@ -16,11 +16,13 @@ public class QuestManager : MonoBehaviour
     {
        print ("ca marche");
        FoundObjectQuest++;
+
             if (FoundObjectQuest == 3)
         {
             Debug.Log("Gagné !");
         }
-			// Détruit le panneau au bout de 0.1 seconde.
+
+			// Détruit le questobject au bout de 0.1 seconde.
 			Destroy (gameObject, 0.1f);
 			
 			gameObject.SetActive (false);
