@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 4444446408680525101}
   - component: {fileID: 4372344280533506204}
   - component: {fileID: 5752254643130233197}
+  - component: {fileID: 5907764713375851558}
+  - component: {fileID: 5378326334576923594}
   m_Layer: 0
   m_Name: QuestObject
   m_TagString: Untagged
@@ -100,7 +102,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -119,3 +121,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectID: Panties
+--- !u!114 &5907764713375851558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7157244853419115064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5aa8f44ce7b1b04eae32ad28824a3ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questManager: {fileID: 5378326334576923594}
+--- !u!114 &5378326334576923594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7157244853419115064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4759702be8db0bb4bb3c3fa0c73fdefe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -20,6 +20,8 @@ public class S_Objectif_Objects : S_MissionObjective
         }
     }
     
-    public override void End() {
+    public override void End() 
+    {
+        
     }
 }
