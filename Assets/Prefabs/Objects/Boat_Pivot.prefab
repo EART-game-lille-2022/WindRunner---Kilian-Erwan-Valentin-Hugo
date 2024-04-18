@@ -413,7 +413,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rendererTransform: {fileID: 5768222354694623368}
-  _baseMoveSpeed: 5
+  _baseMoveSpeed: 10
   _rotationSpeed: 300
   _forceMultiplier: 200
 --- !u!114 &5097047469941311939
