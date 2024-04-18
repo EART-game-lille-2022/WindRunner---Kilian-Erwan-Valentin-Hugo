@@ -22137,17 +22137,17 @@ PrefabInstance:
     - target: {fileID: 302603311905305844, guid: b762c306fffb2d4438a0a3ef556f2872,
         type: 3}
       propertyPath: _baseMoveSpeed
-      value: 60
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 302603311905305844, guid: b762c306fffb2d4438a0a3ef556f2872,
         type: 3}
       propertyPath: _rotationSpeed
-      value: 400
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 302603311905305844, guid: b762c306fffb2d4438a0a3ef556f2872,
         type: 3}
       propertyPath: _forceMultiplier
-      value: 1000
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 520243172352169567, guid: b762c306fffb2d4438a0a3ef556f2872,
         type: 3}
@@ -29955,7 +29955,7 @@ PrefabInstance:
     - target: {fileID: 2310778328271340879, guid: c3df9023ba8d0854486db8689aaf341c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 227.6
+      value: 272.7
       objectReference: {fileID: 0}
     - target: {fileID: 2310778328271340879, guid: c3df9023ba8d0854486db8689aaf341c,
         type: 3}
@@ -30007,6 +30007,17 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6415649211410763043, guid: c3df9023ba8d0854486db8689aaf341c,
+        type: 3}
+      propertyPath: myObjects.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6415649211410763043, guid: c3df9023ba8d0854486db8689aaf341c,
+        type: 3}
+      propertyPath: myObjects.Array.data[1]
+      value: 
+      objectReference: {fileID: 1312347842074685937, guid: d5071772c463f064fb92e2bc62c9b845,
+        type: 3}
     - target: {fileID: 8032066740661023679, guid: c3df9023ba8d0854486db8689aaf341c,
         type: 3}
       propertyPath: m_Name
@@ -31460,7 +31471,6 @@ GameObject:
   - component: {fileID: 2115123021}
   - component: {fileID: 2115123020}
   - component: {fileID: 2115123019}
-  - component: {fileID: 2115123018}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -31468,28 +31478,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!64 &2115123018
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2115123017}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &2115123019
 MeshRenderer:
   m_ObjectHideFlags: 0

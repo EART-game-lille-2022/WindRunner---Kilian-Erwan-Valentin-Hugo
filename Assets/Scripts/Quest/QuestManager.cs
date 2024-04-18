@@ -5,6 +5,8 @@ using UnityEngine;
 public class QuestManager : MonoBehaviour
 {
 
+    public RandomObjectSpawner nextSpawn;
+
     public static int FoundObjectQuest;
     // Start is called before the first frame update
     void Start()
@@ -20,6 +22,8 @@ public class QuestManager : MonoBehaviour
             if (FoundObjectQuest == 3)
         {
             Debug.Log("Gagné !");
+            nextSpawn.NextSpawn();
+
         }
 
 			// Détruit le questobject au bout de 0.1 seconde.
