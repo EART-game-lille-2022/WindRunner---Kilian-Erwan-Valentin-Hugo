@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Water
+  m_Name: Water 1
   m_Shader: {fileID: -6465566751694194690, guid: d289d1240bbc8c34fbd058ac8e0f3b0b,
     type: 3}
   m_Parent: {fileID: 0}
@@ -56,16 +56,15 @@ Material:
     - _FoamSpeed: 0.03
     - _Foam_Amount: 0.8
     - _Foam_CutOff: 1.08
-    - _NoiseLength: 0
     - _NoiseTiling: 593.44
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _RippleDensity: 2.89
+    - _RippleDensity: 250
     - _RippleSilmness: 8
     - _RippleSpeed: 2
     - _WaveHeight: 0.14
     - _WaveScale: 0.001
-    - _WaveSpeed: 271.9
+    - _WaveSpeed: 85
     m_Colors:
     - _BaseColor: {r: 0.31764707, g: 0.6627451, b: 0.945098, a: 0}
     - _FoamColor: {r: 1.498039, g: 1.498039, b: 1.498039, a: 1}
