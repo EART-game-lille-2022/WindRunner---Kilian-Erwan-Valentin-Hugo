@@ -798,7 +798,7 @@ GameObject:
   - component: {fileID: 169209950}
   - component: {fileID: 169209949}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: Options
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -919,7 +919,7 @@ GameObject:
   - component: {fileID: 199173354}
   - component: {fileID: 199173353}
   m_Layer: 5
-  m_Name: Button (2)
+  m_Name: "Cr\xE9dits"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1975,11 +1975,71 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6093592463355912122, guid: 12bb556cff79bf4459f706443e8bd318,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4321b559290ee4249bc1494555db70a5, type: 2}
+    - target: {fileID: -1806680513116206669, guid: 12bb556cff79bf4459f706443e8bd318,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4321b559290ee4249bc1494555db70a5, type: 2}
+    - target: {fileID: -1804847233110788556, guid: 12bb556cff79bf4459f706443e8bd318,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d7b6e8a6e815e554098d46338387677e, type: 2}
+    - target: {fileID: -804731622281664130, guid: 12bb556cff79bf4459f706443e8bd318,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4321b559290ee4249bc1494555db70a5, type: 2}
+    - target: {fileID: -678588488315902003, guid: 12bb556cff79bf4459f706443e8bd318,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4321b559290ee4249bc1494555db70a5, type: 2}
+    - target: {fileID: 528965420034549672, guid: 12bb556cff79bf4459f706443e8bd318,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 45048bf7cbf79b34f99f637059b4f454, type: 2}
     - target: {fileID: 919132149155446097, guid: 12bb556cff79bf4459f706443e8bd318,
         type: 3}
       propertyPath: m_Name
       value: First_Isle
       objectReference: {fileID: 0}
+    - target: {fileID: 1127955238604853995, guid: 12bb556cff79bf4459f706443e8bd318,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bb6ca08af36ddce4cb8e4a63babaad2f, type: 2}
+    - target: {fileID: 2602397387658105641, guid: 12bb556cff79bf4459f706443e8bd318,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d7b6e8a6e815e554098d46338387677e, type: 2}
+    - target: {fileID: 2708598739572378238, guid: 12bb556cff79bf4459f706443e8bd318,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 8.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 6729489528233011871, guid: 12bb556cff79bf4459f706443e8bd318,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5c3467a81bbbc51459ab80e1d9361068, type: 2}
+    - target: {fileID: 9031469303387774085, guid: 12bb556cff79bf4459f706443e8bd318,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5c3467a81bbbc51459ab80e1d9361068, type: 2}
+    - target: {fileID: 9221464398344231106, guid: 12bb556cff79bf4459f706443e8bd318,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d7b6e8a6e815e554098d46338387677e, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3593,7 +3653,7 @@ GameObject:
   - component: {fileID: 736298511}
   - component: {fileID: 736298510}
   m_Layer: 5
-  m_Name: Bouton1
+  m_Name: Jouer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3675,6 +3735,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 1
+      - m_Target: {fileID: 1317687490}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: IntroAnimation
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &736298511
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5211,11 +5283,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -1120989108687609925, guid: 0607700c1b211a7499973c3effb97092,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4321b559290ee4249bc1494555db70a5, type: 2}
     - target: {fileID: 919132149155446097, guid: 0607700c1b211a7499973c3effb97092,
         type: 3}
       propertyPath: m_Name
       value: Ile3
       objectReference: {fileID: 0}
+    - target: {fileID: 6745302439343835087, guid: 0607700c1b211a7499973c3effb97092,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4321b559290ee4249bc1494555db70a5, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5930,6 +6012,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8143710011712545758, guid: fabd2522109be4f4eacfe10ea2def01a,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4321b559290ee4249bc1494555db70a5, type: 2}
     - target: {fileID: -7824753648676844136, guid: fabd2522109be4f4eacfe10ea2def01a,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -5940,6 +6027,21 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: -7664728788398519507, guid: fabd2522109be4f4eacfe10ea2def01a,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4321b559290ee4249bc1494555db70a5, type: 2}
+    - target: {fileID: -7023974396876390944, guid: fabd2522109be4f4eacfe10ea2def01a,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4321b559290ee4249bc1494555db70a5, type: 2}
+    - target: {fileID: -6902573867230041995, guid: fabd2522109be4f4eacfe10ea2def01a,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: cd4da49e7b25b1140a1e09a4698170c6, type: 2}
     - target: {fileID: 919132149155446097, guid: fabd2522109be4f4eacfe10ea2def01a,
         type: 3}
       propertyPath: m_Name
@@ -6686,6 +6788,7 @@ GameObject:
   - component: {fileID: 1317687487}
   - component: {fileID: 1317687489}
   - component: {fileID: 1317687488}
+  - component: {fileID: 1317687490}
   m_Layer: 1
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -6889,6 +6992,27 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
+--- !u!95 &1317687490
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1317687483}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 226dd39e8637e1544b2145b8722bb7eb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1329986723
 GameObject:
   m_ObjectHideFlags: 0
@@ -10487,7 +10611,7 @@ GameObject:
   - component: {fileID: 2001007921}
   - component: {fileID: 2001007920}
   m_Layer: 5
-  m_Name: Button (3)
+  m_Name: Quitter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
