@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Collect_", menuName = "Data/Objectif : Object collect", order = 1)]
 public class S_Objectif_Objects : S_MissionObjective
 {
+    [SerializeField]
     public string objectID;
     
     public override bool CheckFinish() {
@@ -19,6 +20,8 @@ public class S_Objectif_Objects : S_MissionObjective
         }
     }
     
-    public override void End() {
+    public override void End() 
+    {
+        
     }
 }

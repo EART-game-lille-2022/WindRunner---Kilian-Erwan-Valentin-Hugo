@@ -8,12 +8,14 @@ public class Collectible : MonoBehaviour
     
     public string objectID; //Nom du collectible
 
-    void Awake() {
+    void Awake() 
+    {
         collectibles.Add(this); //Ajouter l'objet sur lequel est le script a la liste
         gameObject.SetActive(false); //Rendre cet objet inactif
     }
 
-    void OnDestroy() {
+    void OnDestroy() 
+    {
         collectibles.Remove(this);
     }
     void Update()
