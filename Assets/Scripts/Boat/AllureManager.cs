@@ -12,11 +12,10 @@ public class AllureManager : MonoBehaviour
     }
 
     [SerializeField] private TMP_Text _allureText;
-    [SerializeField] private TMP_Text _orientationText;
-    [SerializeField] private TMP_Text _multiplierText;
     [SerializeField] private SailRotation _sail;
     [SerializeField] private WindAllure[] allures;
     [SerializeField] private UnityEvent _onCurrentAllureChange;
+    [SerializeField] private UnityEvent _onMirrorSail;
 
     public WindAllure current;
     private WindIndicator _indicator;
@@ -42,12 +41,19 @@ public class AllureManager : MonoBehaviour
         Vector3 direction = objectTransform.transform.forward;
         direction.y = 0;
         float boatAngle = Vector3.Angle(direction, GetWindForward(objectTransform));
+        if (Vector3.Cross(direction, GetWindForward(objectTransform)).y > 0)
+        {
+            _sail.MirrorSail(true);
+        } else
+        {
+            _sail.MirrorSail(false);
+        }
 
         for (int i = 0; i < allures.Length; i++)
         {
             if (boatAngle < 180 - allures[i].minWindAngle)
             {
-                _allureText.text = allures[i].name;
+                if (_allureText != null) { _allureText.text = allures[i].name; }
                 ChangeAllure(i);
                 return;
             }
@@ -56,12 +62,10 @@ public class AllureManager : MonoBehaviour
 
     private Vector3 GetWindForward(Transform objectTransform)
     {
-        Vector3 windForward;
-        WindPoint.GetWeightAt(objectTransform.position, out intensity, out windForward);
+        WindPoint.GetWeightAt(objectTransform.position, out intensity, out Vector3 windForward);
         windForward.y = 0;
-
-        //Debug.DrawRay(objectTransform.position, windForward * intensity * 4, Color.red);
         _indicator.RotateIndicator(windForward);
+
         return windForward;
     }
 
@@ -83,13 +87,11 @@ public class AllureManager : MonoBehaviour
         {
             _multiplier = sailAngle / current.targetSailsAngle;
         }
-        _orientationText.text = sailAngle.ToString() + " ; " + _multiplier.ToString();
     }
 
     private float GetBoatMoveSpeed()
     {
         float moveSpeed = current.velocity * _multiplier;
-        _multiplierText.text = moveSpeed.ToString();
         return moveSpeed;
     }
 
@@ -102,6 +104,6 @@ public class AllureManager : MonoBehaviour
     {
         if (current.name == allures[i].name) { return; }
         current = allures[i];
-        _onCurrentAllureChange.Invoke();
+        _onCurrentAllureChange?.Invoke();
     }
 }
