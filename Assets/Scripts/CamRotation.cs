@@ -1,6 +1,3 @@
-using Cinemachine.Utility;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CamRotation : MonoBehaviour
@@ -9,11 +6,11 @@ public class CamRotation : MonoBehaviour
 
     public float sensivity = 1;
 
-    float distance = 10, targetDistance = 10, zoomVel;
+    private float distance = 10, targetDistance = 10, zoomVel;
     public float dampZoom = 1;
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         // if(!Input.GetMouseButton(1)) return;
 
@@ -23,13 +20,13 @@ public class CamRotation : MonoBehaviour
         // delta *= 1+Input.GetAxis("Mouse ScrollWheel");
         //if(delta.magnitude < 5 ) delta = delta.normalized * 5;
         targetDistance *= 1 + Input.GetAxis("Mouse ScrollWheel");
-        if(targetDistance < 5) targetDistance = 5;
-        if(targetDistance > 30) targetDistance = 30;
+        if (targetDistance < 5) targetDistance = 5;
+        if (targetDistance > 30) targetDistance = 30;
 
         distance = Mathf.SmoothDamp(distance, targetDistance, ref zoomVel, dampZoom);
 
         if (Input.GetMouseButton(1))
-            delta = Quaternion.Euler(0, Input.GetAxis("Mouse X")* sensivity, 0) * delta;
+            delta = Quaternion.Euler(0, Input.GetAxis("Mouse X") * sensivity, 0) * delta;
 
         // delta += transform.up * Input.GetAxis("Mouse Y");
 
@@ -39,7 +36,7 @@ public class CamRotation : MonoBehaviour
             transform.RotateAround(pivotPoint.position, transform.right, -Input.GetAxis("Mouse Y") * sensivity);
 
         Vector3 pos = transform.position;
-        if(pos.y < 2)
+        if (pos.y < 2)
         {
             pos.y = 2;
             transform.position = pos;
