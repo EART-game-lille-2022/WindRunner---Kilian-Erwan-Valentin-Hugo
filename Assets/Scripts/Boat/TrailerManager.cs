@@ -1,15 +1,12 @@
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class TrailerManager : MonoBehaviour
 {
     public static TrailerManager instance;
-
-    //[SerializeField] HingeJoint _joint;
-    [SerializeField] private Transform _towPoint;
-    [SerializeField] private Image _radialFill;
-    
-    private Transform _connectedTransform;
+    [SerializeField] private Rigidbody _towPoint;
+    [SerializeField] private HingeJoint _towedObjectJoint;
 
     private void Awake()
     {
@@ -19,24 +16,19 @@ public class TrailerManager : MonoBehaviour
             instance = this;
     }
 
-    private void Update()
+    public void AttachObject(Rigidbody objectToAttach)
     {
-        if (_connectedTransform != null)
-        {
-            _connectedTransform.position = Vector3.MoveTowards(_connectedTransform.position, _towPoint.position, 1);
-            _connectedTransform.forward = _towPoint.forward;
-        }
-    }
-
-    public void AttachObject(Transform objectToAttach)
-    {
-        if (_connectedTransform != null) { return; }
         Debug.Log("Attach : " + objectToAttach.gameObject.name);
-        _connectedTransform = objectToAttach;
+        Collider collider = objectToAttach.GetComponent<Collider>();
+        collider.enabled = false;
+        objectToAttach.DOMove(transform.position, 1).OnComplete(() => {
+            collider.enabled = true;
+            _towedObjectJoint.connectedBody = objectToAttach;
+        });
     }
 
     public void DetachObject()
     {
-        _connectedTransform = null;
+        _towedObjectJoint.connectedBody = _towPoint;
     }
 }

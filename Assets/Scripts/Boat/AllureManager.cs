@@ -15,6 +15,7 @@ public class AllureManager : MonoBehaviour
     [SerializeField] private SailRotation _sail;
     [SerializeField] private WindAllure[] allures;
     [SerializeField] private UnityEvent _onCurrentAllureChange;
+    [SerializeField] private UnityEvent _onMirrorSail;
 
     public WindAllure current;
     private WindIndicator _indicator;
@@ -40,6 +41,13 @@ public class AllureManager : MonoBehaviour
         Vector3 direction = objectTransform.transform.forward;
         direction.y = 0;
         float boatAngle = Vector3.Angle(direction, GetWindForward(objectTransform));
+        if (Vector3.Cross(direction, GetWindForward(objectTransform)).y > 0)
+        {
+            _sail.MirrorSail(true);
+        } else
+        {
+            _sail.MirrorSail(false);
+        }
 
         for (int i = 0; i < allures.Length; i++)
         {

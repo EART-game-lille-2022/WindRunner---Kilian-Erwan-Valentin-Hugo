@@ -148,12 +148,12 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0.5, z: 0.5}
   m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.079993725, y: 0.5, z: -1.5459986}
+  m_ConnectedAnchor: {x: 0, y: 0.5, z: 4.5}
   serializedVersion: 2
-  m_UseSpring: 0
+  m_UseSpring: 1
   m_Spring:
-    spring: 0
-    damper: 0
+    spring: 2
+    damper: 3
     targetPosition: 0
   m_UseMotor: 0
   m_Motor:
@@ -187,7 +187,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0.5, z: -0.5}
   m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: 0.5, z: 0.25}
+  m_ConnectedAnchor: {x: 8.5, y: 0.5, z: 2.5}
   serializedVersion: 2
   m_UseSpring: 0
   m_Spring:
@@ -226,8 +226,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9f5e3d1f0f1d6741970cae627c729b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _towPoint: {fileID: 3212288286328715929}
-  _radialFill: {fileID: 0}
+  _towPoint: {fileID: 3022188955507196856}
+  _towedObjectJoint: {fileID: 3893023734752226796}
 --- !u!1 &1155841817467533536
 GameObject:
   m_ObjectHideFlags: 0
@@ -501,7 +501,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3212288286328715929}
   - component: {fileID: 3022188955507196856}
-  - component: {fileID: 5710152601912881989}
   m_Layer: 0
   m_Name: TowPoint
   m_TagString: Untagged
@@ -551,29 +550,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!136 &5710152601912881989
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2474905356071611178}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 1
-  m_Height: 5.5
-  m_Direction: 2
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2631667627855849278
 GameObject:
   m_ObjectHideFlags: 0
@@ -872,7 +848,7 @@ Transform:
   m_GameObject: {fileID: 7419731036000192646}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.25, z: -2}
+  m_LocalPosition: {x: 0, y: 0, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
