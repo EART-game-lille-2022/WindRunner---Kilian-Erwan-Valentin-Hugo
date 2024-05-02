@@ -150,7 +150,7 @@ HingeJoint:
   m_AutoConfigureConnectedAnchor: 1
   m_ConnectedAnchor: {x: 0, y: 0.5, z: 4.5}
   serializedVersion: 2
-  m_UseSpring: 1
+  m_UseSpring: 0
   m_Spring:
     spring: 2
     damper: 3
@@ -189,10 +189,10 @@ HingeJoint:
   m_AutoConfigureConnectedAnchor: 1
   m_ConnectedAnchor: {x: 8.5, y: 0.5, z: 2.5}
   serializedVersion: 2
-  m_UseSpring: 0
+  m_UseSpring: 1
   m_Spring:
-    spring: 0
-    damper: 0
+    spring: 2
+    damper: 3
     targetPosition: 0
   m_UseMotor: 0
   m_Motor:
@@ -413,9 +413,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rendererTransform: {fileID: 5768222354694623368}
-  _baseMoveSpeed: 10
-  _rotationSpeed: 300
-  _forceMultiplier: 200
+  _baseMoveSpeed: 20
+  _rotationSpeed: 10
+  _forceMultiplier: 400
 --- !u!114 &5097047469941311939
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -470,6 +470,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _onMirrorSail:
+    m_PersistentCalls:
+      m_Calls: []
   current:
     name: 
     minWindAngle: 0
@@ -968,12 +971,12 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 9d009718c32b5f440b5c48af967c5135,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.5
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9d009718c32b5f440b5c48af967c5135,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.5
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9d009718c32b5f440b5c48af967c5135,
         type: 3}
@@ -983,12 +986,12 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 9d009718c32b5f440b5c48af967c5135,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 90
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9d009718c32b5f440b5c48af967c5135,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9d009718c32b5f440b5c48af967c5135,
         type: 3}
