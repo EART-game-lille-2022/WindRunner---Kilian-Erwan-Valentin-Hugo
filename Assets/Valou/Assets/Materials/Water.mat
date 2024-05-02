@@ -56,7 +56,7 @@ Material:
     - _FoamSpeed: 0.03
     - _Foam_Amount: 0.8
     - _Foam_CutOff: 1.08
-    - _NoiseLength: 0
+    - _NoiseLength: 0.5
     - _NoiseTiling: 593.44
     - _QueueControl: 0
     - _QueueOffset: 0
