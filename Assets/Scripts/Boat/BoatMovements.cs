@@ -25,10 +25,10 @@ public class BoatMovements : MonoBehaviour
     private void FixedUpdate()
     {
         _speedMultiplier = _allureManager.GetBoatSpeed(transform);
-        float moveSpeed = (_baseMoveSpeed * _speedMultiplier * Time.fixedDeltaTime).Abs();
+        float moveSpeed = (_baseMoveSpeed * _speedMultiplier).Abs();
 
         _rigidbody.AddTorque(0, _rotationAxis.x * _forceMultiplier * _rotationSpeed * Time.fixedDeltaTime, 0);
-        _rigidbody.AddForce(_forceMultiplier * moveSpeed * _rendererTransform.forward);
+        _rigidbody.AddForce(_forceMultiplier * moveSpeed * Time.fixedDeltaTime * _rendererTransform.forward);
     }
 
     public void RotateBoat(InputAction.CallbackContext callback)
