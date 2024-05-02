@@ -9,11 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1e2efc2c551d544986fd214911ce8ae, type: 3}
-  m_Name: Mission_Two
+  m_Script: {fileID: 11500000, guid: 1def13677ce157240ac012b591eb5de2, type: 3}
+  m_Name: remorquer_BateauEchoue1
   m_EditorClassIdentifier: 
-  missionName: Mission2
-  isUnlocked: 0
-  unlockedOnFinish: []
-  objectifList:
-  - {fileID: 11400000, guid: 8cd0cf682001e90409c981ee31b9eabe, type: 2}
+  objectID: BateauEchoue1
+  countNeeded: 1

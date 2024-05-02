@@ -8,7 +8,7 @@ public class MissionStart : MonoBehaviour
 
      IEnumerator Start()        
      {
-         yield return new WaitForSeconds(5); //Attendre 5s
+         yield return new WaitForSeconds(1); //Attendre 1s
          missionStart.StartMission(); // et lancé la mission entré plus tot
      }
 
