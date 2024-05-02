@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3625571734830414433}
   - component: {fileID: 6415649211410763043}
   m_Layer: 0
-  m_Name: Spawner
+  m_Name: SpawnerSecondQuest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -119,6 +119,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myObjects:
-  - {fileID: 7157244853419115064, guid: 98f3abf1e2d7db746a60a12a1852fa8f, type: 3}
   - {fileID: 1312347842074685937, guid: d5071772c463f064fb92e2bc62c9b845, type: 3}
   maxSpawnCount: 3

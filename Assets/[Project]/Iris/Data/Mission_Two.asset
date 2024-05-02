@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1e2efc2c551d544986fd214911ce8ae, type: 3}
   m_Name: Mission_Two
   m_EditorClassIdentifier: 
-  missionName: 
-  dialogue: 
+  missionName: Mission2
+  isUnlocked: 0
   unlockedOnFinish: []
-  objectives: []
+  objectifList:
+  - {fileID: 11400000, guid: 8cd0cf682001e90409c981ee31b9eabe, type: 2}
