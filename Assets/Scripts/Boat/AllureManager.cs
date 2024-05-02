@@ -8,13 +8,13 @@ public class AllureManager : MonoBehaviour
     public struct WindAllure
     {
         public string name;
-        public float minWindAngle, targetSailsAngle, velocity;
+        public float minWindAngle, targetSailsAngle, velocity, optimalAngle;
     }
 
     [SerializeField] private TMP_Text _allureText;
     [SerializeField] private SailRotation _sail;
     [SerializeField] private WindAllure[] allures;
-    [SerializeField] private UnityEvent _onCurrentAllureChange;
+    [SerializeField] private UnityEvent<float> _onCurrentAllureChange;
     [SerializeField] private UnityEvent _onMirrorSail;
 
     public WindAllure current;
@@ -104,6 +104,6 @@ public class AllureManager : MonoBehaviour
     {
         if (current.name == allures[i].name) { return; }
         current = allures[i];
-        _onCurrentAllureChange?.Invoke();
+        _onCurrentAllureChange?.Invoke(current.optimalAngle);
     }
 }

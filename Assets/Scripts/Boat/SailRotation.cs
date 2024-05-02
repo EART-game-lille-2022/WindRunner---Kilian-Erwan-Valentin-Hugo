@@ -9,10 +9,14 @@ public class SailRotation : MonoBehaviour
 
     public void RotareSail(float value)
     {
-        float angle = value.Remap(0, 1, 32, 130);
-        angle = Mathf.Clamp(angle, 33, 129);
-        currentAngle = angle;
-        transform.localEulerAngles = new Vector3(0, currentAngle, 0);
+        currentAngle = value;
+        if (_isMirrored)
+        {
+            transform.DORotate(new Vector3(0, value + (90 - value), 0), 0.5f);
+        } else
+        {
+            transform.DORotate(new Vector3(0, value, 0), 0.5f);
+        }
     }
 
     public void MirrorSail(bool state)
