@@ -4,7 +4,8 @@ using UnityEngine.UI;
 
 public class DelayedFadeAnimation : MonoBehaviour
 {
-    [SerializeField, Range(0, 1)] private float _startAlpha;
+    [SerializeField, Range(0, 1)] private float _startAlpha = 0;
+    [SerializeField, Range(0, 1)] private float _endAlpha = 1;
     [SerializeField] private float _fadeDuration;
     private Image _image;
 
@@ -20,7 +21,7 @@ public class DelayedFadeAnimation : MonoBehaviour
             Debug.LogWarning("No Image Found on Object.");
             return;
         }
-        _image.DOFade(1, _fadeDuration).SetDelay(delay);
+        _image.DOFade(_endAlpha, _fadeDuration).SetDelay(delay);
     }
 
     public void StartFadeOut(float delay)
@@ -30,6 +31,6 @@ public class DelayedFadeAnimation : MonoBehaviour
             Debug.LogWarning("No Image Found on Object.");
             return;
         }
-        _image.DOFade(0, _fadeDuration).SetDelay(delay);
+        _image.DOFade(_startAlpha, _fadeDuration).SetDelay(delay);
     }
 }
