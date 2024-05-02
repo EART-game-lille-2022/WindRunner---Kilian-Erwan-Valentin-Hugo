@@ -2,7 +2,7 @@ using UnityEngine;
 using DG.Tweening;
 using UnityEngine.UI;
 
-public class DelayedAnimation : MonoBehaviour
+public class DelayedFadeAnimation : MonoBehaviour
 {
     [SerializeField, Range(0, 1)] private float _startAlpha;
     [SerializeField] private float _fadeDuration;
