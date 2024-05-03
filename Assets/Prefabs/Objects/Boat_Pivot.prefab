@@ -359,6 +359,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: SailOpeningSelector, Assembly-CSharp
+        m_MethodName: OnMouseDelta
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 50da2122-addf-4a77-ad9c-acdec5df4e5a
     m_ActionName: Player/MouseDelta[/Mouse/delta]
   m_NeverAutoSwitchControlSchemes: 0
@@ -1059,7 +1071,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: b1021bc95c2808649a52f3fb7feb0bfa,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 10
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b1021bc95c2808649a52f3fb7feb0bfa,
         type: 3}
@@ -1069,7 +1081,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: b1021bc95c2808649a52f3fb7feb0bfa,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.75
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b1021bc95c2808649a52f3fb7feb0bfa,
         type: 3}
@@ -1150,18 +1162,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tweenDuration: 0.5
-  _onvalueChange:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2

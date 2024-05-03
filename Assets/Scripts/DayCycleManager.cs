@@ -7,6 +7,15 @@ public class DayCycleManager : MonoBehaviour
     [SerializeField] private Gradient _ambientColor, _directionalColor, _fogColor;
     [SerializeField, Range(0, 24)] private float _timeOfDay;
 
+    private void Start()
+    {
+        if (_directionalLight == null)
+        {
+            Debug.LogWarning(gameObject.name + " : DirectionalLight reference is not set");
+            enabled = false;
+        }
+    }
+
     private void Update()
     {
         if (Application.isPlaying)
@@ -28,10 +37,4 @@ public class DayCycleManager : MonoBehaviour
             _directionalLight.transform.localRotation = Quaternion.Euler((timePercent * 360) - 90, 170, 0);
         }
     }
-
-    /*private void OnValidate()
-    {
-        if (_directionalLight != null) { return; }
-        if (RenderSettings.sun != null) { _directionalLight = RenderSettings.sun; }
-    }*/
 }
