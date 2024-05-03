@@ -4,7 +4,7 @@ using UnityEngine;
 public class SailRotation : MonoBehaviour
 {
     public float currentAngle;
-    private bool _isMirrored;
+    public bool _isMirrored;
 
     public void RotareSail(float value)
     {
@@ -22,16 +22,14 @@ public class SailRotation : MonoBehaviour
 
     public void MirrorSail(bool state)
     {
-        if (state != _isMirrored)
+        _isMirrored = state;
+        if (_isMirrored == true)
         {
-            _isMirrored = state;
-            if (_isMirrored == true)
-            {
-                transform.DOScaleZ(-1, 1);
-            } else
-            {
-                transform .DOScaleZ(1, 1);
-            }
+            transform.DOScaleZ(-1, 1);
+        } else
+        {
+            transform .DOScaleZ(1, 1);
         }
+        RotareSail(currentAngle);
     }
 }

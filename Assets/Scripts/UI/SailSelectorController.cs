@@ -18,7 +18,7 @@ public class SailSelectorController : MonoBehaviour, IPointerDownHandler, IPoint
     [SerializeField] private float _moveDelay;
     [SerializeField] private List<Crans> _positions;
     [SerializeField] private UnityEvent<float> _onValueChange;
-    private Vector2 _mouseDelta;
+    private float _mouseDelta;
     private int _currentIndex = 0;
     private bool _isPressed = false;
     private bool _canMove = true;
@@ -27,11 +27,11 @@ public class SailSelectorController : MonoBehaviour, IPointerDownHandler, IPoint
     {
         if (_isPressed)
         {
-            if (_mouseDelta.y > 0)
+            if (_mouseDelta > 0.1f)
             {
                 StartCoroutine(MoveSelector(-1));
             }
-            if (_mouseDelta.y < 0)
+            if (_mouseDelta < 0.1f)
             {
                 StartCoroutine(MoveSelector(1));
             }
@@ -51,7 +51,19 @@ public class SailSelectorController : MonoBehaviour, IPointerDownHandler, IPoint
 
     public void OnMouseDelta(InputAction.CallbackContext callback)
     {
-        _mouseDelta = callback.ReadValue<Vector2>();
+        _mouseDelta = callback.ReadValue<Vector2>().y;
+    }
+
+    public void OnTrigger(InputAction.CallbackContext callback)
+    {
+        _mouseDelta = callback.ReadValue<float>();
+        if (_mouseDelta != 0)
+        {
+            _isPressed = true;
+        } else
+        {
+            _isPressed = false;
+        }
     }
 
     private IEnumerator MoveSelector(int sign)
