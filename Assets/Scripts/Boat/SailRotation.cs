@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class SailRotation : MonoBehaviour
 {
-    [SerializeField][Range(0.1f, 30f)] private float _rotationSpeed;
     public float currentAngle;
     private bool _isMirrored;
 
@@ -12,10 +11,12 @@ public class SailRotation : MonoBehaviour
         currentAngle = value;
         if (_isMirrored)
         {
-            transform.DORotate(new Vector3(0, value + (90 - value), 0), 0.5f);
+            float newValue = value.Remap(32, 120, 140, 60);
+            transform.DORotate(new Vector3(0, newValue, 0), 0.5f);
         } else
         {
             transform.DORotate(new Vector3(0, value, 0), 0.5f);
+            Debug.Log(value);
         }
     }
 
