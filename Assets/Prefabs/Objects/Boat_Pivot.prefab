@@ -345,6 +345,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: a7bc9fc0-8723-49cd-80f2-9fe3e3959424
     m_ActionName: Player/CameraRotation[/Mouse/delta]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: SailSelectorController, Assembly-CSharp
+        m_MethodName: OnMouseDelta
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 50da2122-addf-4a77-ad9c-acdec5df4e5a
+    m_ActionName: Player/MouseDelta[/Mouse/delta]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -414,7 +430,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rendererTransform: {fileID: 5768222354694623368}
   _baseMoveSpeed: 20
-  _rotationSpeed: 10
+  _rotationSpeed: 20
   _forceMultiplier: 400
 --- !u!114 &5097047469941311939
 MonoBehaviour:
@@ -435,33 +451,39 @@ MonoBehaviour:
     minWindAngle: 150
     targetSailsAngle: 90
     velocity: 0.8
+    optimalAngle: 0
   - name: Largue
     minWindAngle: 110
     targetSailsAngle: 45
     velocity: 0.9
+    optimalAngle: 30
   - name: Travers
     minWindAngle: 80
     targetSailsAngle: 30
     velocity: 1
+    optimalAngle: 60
   - name: Bon plein
     minWindAngle: 45
     targetSailsAngle: 20
     velocity: 0.6
+    optimalAngle: 0
   - name: "Pr\xE8s"
     minWindAngle: 30
     targetSailsAngle: 10
     velocity: 0.4
+    optimalAngle: 90
   - name: Vent debout
     minWindAngle: 0
     targetSailsAngle: 1
     velocity: 0.25
+    optimalAngle: 120
   _onCurrentAllureChange:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SailAngleIndicator, Assembly-CSharp
         m_MethodName: ShowOptimalAngle
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -478,6 +500,7 @@ MonoBehaviour:
     minWindAngle: 0
     targetSailsAngle: 0
     velocity: 0
+    optimalAngle: 0
   intensity: 0
 --- !u!114 &8319839966172020696
 MonoBehaviour:
@@ -661,14 +684,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3622274065902029599}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0.86602545, z: 0, w: 0.49999994}
   m_LocalPosition: {x: 0, y: 0, z: 2.375}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7142809204641628576}
   m_Father: {fileID: 5768222354694623368}
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 120, z: 0}
 --- !u!114 &3225048596164198566
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -681,7 +704,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae9ed7b01b12df8489e28bb9bbc0cf00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rotationSpeed: 15
   currentAngle: 90
 --- !u!1 &3670492696289547875
 GameObject:
@@ -1036,13 +1058,18 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: b1021bc95c2808649a52f3fb7feb0bfa,
         type: 3}
+      propertyPath: m_LocalScale.z
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b1021bc95c2808649a52f3fb7feb0bfa,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.375
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b1021bc95c2808649a52f3fb7feb0bfa,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 3.75
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b1021bc95c2808649a52f3fb7feb0bfa,
         type: 3}
@@ -1092,7 +1119,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b1021bc95c2808649a52f3fb7feb0bfa,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7563043051275462001}
   m_SourcePrefab: {fileID: 100100000, guid: b1021bc95c2808649a52f3fb7feb0bfa, type: 3}
 --- !u!4 &7142809204641628576 stripped
 Transform:
@@ -1100,3 +1131,37 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 7253859042713626187}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &7524261035994143514 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: b1021bc95c2808649a52f3fb7feb0bfa,
+    type: 3}
+  m_PrefabInstance: {fileID: 7253859042713626187}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7563043051275462001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7524261035994143514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c81a3b048854f9c49823936471ea57f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tweenDuration: 0.5
+  _onvalueChange:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
