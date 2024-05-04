@@ -1,9 +1,11 @@
+using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 
 public class SinkedBoatController : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
-    [SerializeField] private RadialFillManager _radialFillManager;
+    [SerializeField] private GameObject _button;
     [SerializeField] private float _minTowDistance;
     [SerializeField] private float _fillSpeed;
     private Rigidbody _body;
@@ -13,9 +15,9 @@ public class SinkedBoatController : MonoBehaviour, IPointerDownHandler, IPointer
 
     private void Start()
     {
-        if (_radialFillManager == null)
+        if (RadialFillManager.instance == null)
         {
-            Debug.LogWarning(gameObject.name + " : RadialFillManager is not set.");
+            Debug.LogWarning(gameObject.name + " : RadialFillManager does not Exist.");
             enabled = false;
         }
         _body = GetComponent<Rigidbody>();
@@ -23,15 +25,21 @@ public class SinkedBoatController : MonoBehaviour, IPointerDownHandler, IPointer
 
     private void Update()
     {
+        if (Input.GetJoystickNames().Count() >= 1 && Input.GetJoystickNames()[0] != "")
+        {
+            ShowButton();
+            AttachBoat();
+        }
+
         if (_isFilling)
         {
             _fillAmount += _fillSpeed * Time.deltaTime;
-            _radialFillManager.UpdateFill(_fillAmount);
+            RadialFillManager.instance.UpdateFill(_fillAmount, _button.transform.position);
             if (_fillAmount >= 1)
             {
                 _isFilling = false;
                 _fillAmount = 0;
-                _radialFillManager.UpdateFill(_fillAmount);
+                RadialFillManager.instance.UpdateFill(_fillAmount, _button.transform.position);
                 if (_isAttach == false)
                 {
                     TrailerManager.instance.AttachObject(_body);
@@ -48,18 +56,28 @@ public class SinkedBoatController : MonoBehaviour, IPointerDownHandler, IPointer
         {
             if (_fillAmount <= 0) { return; }
             _fillAmount = Mathf.Clamp01(_fillAmount - _fillSpeed * Time.deltaTime);
-            _radialFillManager.UpdateFill(_fillAmount);
+            RadialFillManager.instance.UpdateFill(_fillAmount, _button.transform.position);
+        }
+    }
+
+    private void ShowButton()
+    {
+        float distance = Vector3.Distance(transform.position, TrailerManager.instance.transform.position);
+        if (distance < _minTowDistance)
+        {
+            _button.SetActive(true);
+        } else
+        {
+            _button.SetActive(false);
         }
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        Debug.Log("Pointer down");
         if (eventData.button != 0) { return; }
         float distance = Vector3.Distance(transform.position, TrailerManager.instance.transform.position);
         if (distance > _minTowDistance)
         {
-            Debug.Log("Distance to high : " + distance);
             return;
         }
         _isFilling = true;
@@ -68,5 +86,20 @@ public class SinkedBoatController : MonoBehaviour, IPointerDownHandler, IPointer
     public void OnPointerUp(PointerEventData eventData)
     {
         _isFilling = false;
+    }
+
+    private void AttachBoat()
+    {
+        if (Input.GetKey(KeyCode.JoystickButton0))
+        {
+            float distance = Vector3.Distance(transform.position, TrailerManager.instance.transform.position);
+            if (distance <= _minTowDistance) 
+            {  
+                _isFilling = true;
+            }
+        } else
+        {
+             _isFilling = false;
+        }
     }
 }

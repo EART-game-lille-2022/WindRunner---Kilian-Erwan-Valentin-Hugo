@@ -1,7 +1,6 @@
 using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.Controls;
 
 public class CamRotation : MonoBehaviour
 {
@@ -13,7 +12,6 @@ public class CamRotation : MonoBehaviour
     public float dampZoom = 1;
     private Vector2 _rotateAxis;
 
-    // Update is called once per frame
     private void Update()
     {
         Vector3 delta = transform.position - pivotPoint.position;
@@ -51,6 +49,5 @@ public class CamRotation : MonoBehaviour
     public void OnCameraRotation(InputAction.CallbackContext callback)
     {
         _rotateAxis = callback.ReadValue<Vector2>();
-        Debug.Log(_rotateAxis);
     }
 }
