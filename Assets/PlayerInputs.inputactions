@@ -33,6 +33,15 @@
                     "initialStateCheck": true
                 },
                 {
+                    "name": "CameraZoom",
+                    "type": "Value",
+                    "id": "c06d54de-7153-4b78-91ff-79f971781953",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
                     "name": "MouseDelta",
                     "type": "Value",
                     "id": "50da2122-addf-4a77-ad9c-acdec5df4e5a",
@@ -163,7 +172,7 @@
                 {
                     "name": "right",
                     "id": "e560277f-4bfd-423d-853a-594e98a405c4",
-                    "path": "<Gamepad>/rightStick/left",
+                    "path": "<Gamepad>/leftStick/right",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -346,6 +355,72 @@
                     "action": "OpenSail",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "GamePad",
+                    "id": "ce0097d9-43af-474b-b6ef-46be43e315d3",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CameraZoom",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "fc4b6638-b722-4d83-b39d-e0f4b623d417",
+                    "path": "<Gamepad>/dpad/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CameraZoom",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "455986dd-f466-4c7b-8c16-ff813dacb672",
+                    "path": "<Gamepad>/dpad/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CameraZoom",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "539d5cdb-049c-42f8-9871-819e02eeeaa5",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CameraZoom",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "064c17d7-d52a-44b4-ba74-eaf0630f3587",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CameraZoom",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "c153f94a-2826-4ae5-83f8-fc3e2229cc41",
+                    "path": "<Mouse>/scroll",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CameraZoom",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
