@@ -12,10 +12,8 @@ public class SailAngleIndicator : MonoBehaviour
         _rectTransform = GetComponent<RectTransform>();
     }
 
-    public void ShowOptimalAngle()
+    public void ShowOptimalAngle(float angle)
     {
-        float sailAngle = _allureManager.GetCurrentAllure().targetSailsAngle;
-        _indicatorPosition = sailAngle.Remap(0, 90, -400, 400);
-        _rectTransform.DOAnchorPosX(_indicatorPosition, 2);
+        _rectTransform.localEulerAngles = new Vector3(0, 0, angle);
     } 
 }

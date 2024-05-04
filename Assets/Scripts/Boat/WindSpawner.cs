@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class WindSpawner : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class WindSpawner : MonoBehaviour
     public Transform _spawnPosition;
     [SerializeField, Range(0f, 2f)] private float _spawnDelay;
     private bool _canCreatePoint;
+    private bool _isPressed;
 
     private void Start()
     {
@@ -16,16 +18,16 @@ public class WindSpawner : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.Space))
+        if (_isPressed == true)
         {
             StartCoroutine(CreateWindPoint());
         }
     }
 
-    IEnumerator CreateWindPoint()
+    private IEnumerator CreateWindPoint()
     {
-        if (_canCreatePoint == true) 
-        { 
+        if (_canCreatePoint == true)
+        {
             _canCreatePoint = false;
             Vector3 forward = refPosRot.forward;
             forward.y = 0;
@@ -33,5 +35,15 @@ public class WindSpawner : MonoBehaviour
             yield return new WaitForSeconds(_spawnDelay);
             _canCreatePoint = true;
         }
+    }
+
+    public void OnWindGenerate(InputAction.CallbackContext callback)
+    {
+        if (callback.started)
+        {
+            _isPressed = true;
+        }
+        if (callback.canceled)
+            _isPressed = false;
     }
 }

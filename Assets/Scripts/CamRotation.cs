@@ -1,4 +1,6 @@
+using System.Linq;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class CamRotation : MonoBehaviour
 {
@@ -8,34 +10,30 @@ public class CamRotation : MonoBehaviour
 
     private float distance = 10, targetDistance = 10, zoomVel;
     public float dampZoom = 1;
+    private Vector2 _rotateAxis, _zoomAxis;
 
-    // Update is called once per frame
     private void Update()
     {
-        // if(!Input.GetMouseButton(1)) return;
-
-        // transform.RotateAround(pivotPoint.position, Vector3.up, Input.GetAxis("Mouse X"));
-
         Vector3 delta = transform.position - pivotPoint.position;
-        // delta *= 1+Input.GetAxis("Mouse ScrollWheel");
-        //if(delta.magnitude < 5 ) delta = delta.normalized * 5;
-        targetDistance *= 1 + Input.GetAxis("Mouse ScrollWheel");
+        targetDistance *= 1 + -_zoomAxis.y;
         if (targetDistance < 5) targetDistance = 5;
         if (targetDistance > 30) targetDistance = 30;
 
         distance = Mathf.SmoothDamp(distance, targetDistance, ref zoomVel, dampZoom);
 
         if (Input.GetMouseButton(1))
-            delta = Quaternion.Euler(0, Input.GetAxis("Mouse X") * sensivity, 0) * delta;
-
-        // delta += transform.up * Input.GetAxis("Mouse Y");
+            delta = Quaternion.Euler(0, _rotateAxis.x * sensivity, 0) * delta;
+        if (Input.GetJoystickNames().Count() >= 1 && Input.GetAxis("Mouse X") == 0)
+            delta = Quaternion.Euler(0, _rotateAxis.x * (sensivity / 2), 0) * delta;
 
         transform.position = pivotPoint.position + delta.normalized * distance;
 
         if (Input.GetMouseButton(1))
-            transform.RotateAround(pivotPoint.position, transform.right, -Input.GetAxis("Mouse Y") * sensivity);
+            transform.RotateAround(pivotPoint.position, transform.right, -_rotateAxis.y * sensivity);
+        if (Input.GetJoystickNames().Count() >= 1 && Input.GetAxis("Mouse Y") == 0)
+            transform.RotateAround(pivotPoint.position, transform.right, -_rotateAxis.y * (sensivity / 2));
 
-        Vector3 pos = transform.position;
+            Vector3 pos = transform.position;
         if (pos.y < 2)
         {
             pos.y = 2;
@@ -46,5 +44,15 @@ public class CamRotation : MonoBehaviour
             pos.y = 9;
             transform.position = pos;
         }
+    }
+
+    public void OnCameraRotation(InputAction.CallbackContext callback)
+    {
+        _rotateAxis = callback.ReadValue<Vector2>();
+    }
+
+    public void OnCameraZoom(InputAction.CallbackContext callback)
+    {
+        _zoomAxis = callback.ReadValue<Vector2>();
     }
 }
