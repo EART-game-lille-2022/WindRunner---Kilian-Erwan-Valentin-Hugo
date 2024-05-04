@@ -1,36 +1,40 @@
 using UnityEngine;
 using DG.Tweening;
-using UnityEngine.UI;
 
 public class DelayedFadeAnimation : MonoBehaviour
 {
-    [SerializeField, Range(0, 1)] private float _startAlpha = 0;
-    [SerializeField, Range(0, 1)] private float _endAlpha = 1;
-    [SerializeField] private float _fadeDuration;
-    private Image _image;
+    [SerializeField] float _fadeDuration;
+    CanvasGroup _group;
 
-    private void Start()
+    void Start()
     {
-        _image = GetComponent<Image>();
+        _group = GetComponent<CanvasGroup>();
     }
 
-    public void StartFadeInAnimation(float delay)
+    public void StartFadeIn(float delay)
     {
-        if (_image == null) 
-        { 
-            Debug.LogWarning("No Image Found on Object.");
+        if (_group == null)
+        {
+            Debug.LogWarning(gameObject.name + " : There is nothing to fade");
             return;
         }
-        _image.DOFade(_endAlpha, _fadeDuration).SetDelay(delay);
+        _group.DOFade(1, _fadeDuration).SetDelay(delay).OnComplete(() => ChangeCanvasGroupPorperty(true));
     }
 
     public void StartFadeOut(float delay)
     {
-        if (_image == null)
-        {
-            Debug.LogWarning("No Image Found on Object.");
-            return;
+        if (_group == null) 
+        { 
+            Debug.LogWarning(gameObject.name + " : There is nothing to fade");
+            return; 
         }
-        _image.DOFade(_startAlpha, _fadeDuration).SetDelay(delay);
+        _group.DOFade(0, _fadeDuration).SetDelay(delay).OnComplete(() => ChangeCanvasGroupPorperty(false));
+    }
+
+    void ChangeCanvasGroupPorperty(bool isEnabled)
+    {
+        if (_group == null) { return; }
+        _group.interactable = isEnabled;
+        _group.blocksRaycasts = isEnabled;
     }
 }
