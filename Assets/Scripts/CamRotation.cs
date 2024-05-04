@@ -10,12 +10,12 @@ public class CamRotation : MonoBehaviour
 
     private float distance = 10, targetDistance = 10, zoomVel;
     public float dampZoom = 1;
-    private Vector2 _rotateAxis;
+    private Vector2 _rotateAxis, _zoomAxis;
 
     private void Update()
     {
         Vector3 delta = transform.position - pivotPoint.position;
-        targetDistance *= 1 + Input.GetAxis("Mouse ScrollWheel");
+        targetDistance *= 1 + -_zoomAxis.y;
         if (targetDistance < 5) targetDistance = 5;
         if (targetDistance > 30) targetDistance = 30;
 
@@ -49,5 +49,10 @@ public class CamRotation : MonoBehaviour
     public void OnCameraRotation(InputAction.CallbackContext callback)
     {
         _rotateAxis = callback.ReadValue<Vector2>();
+    }
+
+    public void OnCameraZoom(InputAction.CallbackContext callback)
+    {
+        _zoomAxis = callback.ReadValue<Vector2>();
     }
 }
