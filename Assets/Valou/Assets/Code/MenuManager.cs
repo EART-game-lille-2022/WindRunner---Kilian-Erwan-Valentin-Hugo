@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class MenuManager : MonoBehaviour
 {
@@ -11,19 +12,12 @@ public class MenuManager : MonoBehaviour
     {
         _MenuPauseGO.SetActive(false);
     }
-    private void Update()
+    public void OnPause(InputAction.CallbackContext callback)
     {
-        if (InputManager.Instance.MenuOpenCloseInput)
-        {
-            if (!isPaused)
-            {
-                Pause();
-            }
-            else
-            {
+        if (isPaused==true)
                 Unpause();
-            }
-        }
+            else
+                Pause();
     }
 
     public void Pause()
