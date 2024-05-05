@@ -16,7 +16,6 @@ public class SailRotation : MonoBehaviour
         } else
         {
             transform.DORotate(new Vector3(0, value, 0), 0.5f);
-            Debug.Log(value);
         }
     }
 

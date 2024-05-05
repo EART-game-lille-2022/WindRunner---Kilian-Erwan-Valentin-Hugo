@@ -8,9 +8,14 @@ public class CamRotation : MonoBehaviour
 
     public float sensivity = 1;
 
-    private float distance = 10, targetDistance = 10, zoomVel;
+    private float distance = 5, targetDistance = 10, zoomVel;
     public float dampZoom = 1;
     private Vector2 _rotateAxis, _zoomAxis;
+
+    private void Start()
+    {
+        distance = 5;
+    }
 
     private void Update()
     {

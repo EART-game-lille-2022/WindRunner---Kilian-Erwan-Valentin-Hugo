@@ -6,6 +6,7 @@ public class WindIndicator : MonoBehaviour
 
     public void RotateIndicator(Vector3 windDirection)
     {
+        if (windDirection == Vector3.zero) { return; }
         transform.rotation = Quaternion.LookRotation(windDirection);
     }
 }
