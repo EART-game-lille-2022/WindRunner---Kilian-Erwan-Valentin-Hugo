@@ -31,23 +31,23 @@ public class CamRotation : MonoBehaviour
         if (Input.GetJoystickNames().Count() >= 1 && Input.GetAxis("Mouse X") == 0)
             delta = Quaternion.Euler(0, _rotateAxis.x * (sensivity / 2), 0) * delta;
 
-        transform.position = pivotPoint.position + delta.normalized * distance;
+        transform.localPosition = pivotPoint.localPosition + delta.normalized * distance;
 
         if (Input.GetMouseButton(1))
             transform.RotateAround(pivotPoint.position, transform.right, -_rotateAxis.y * sensivity);
         if (Input.GetJoystickNames().Count() >= 1 && Input.GetAxis("Mouse Y") == 0)
             transform.RotateAround(pivotPoint.position, transform.right, -_rotateAxis.y * (sensivity / 2));
 
-            Vector3 pos = transform.position;
+            Vector3 pos = transform.localPosition;
         if (pos.y < 2)
         {
             pos.y = 2;
-            transform.position = pos;
+            transform.localPosition = pos;
         }
         if (pos.y > 9)
         {
             pos.y = 9;
-            transform.position = pos;
+            transform.localPosition = pos;
         }
     }
 

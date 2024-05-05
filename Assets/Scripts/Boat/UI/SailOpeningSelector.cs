@@ -25,7 +25,7 @@ public class SailOpeningSelector : MonoBehaviour, IPointerDownHandler, IPointerU
 
     private void Start()
     {
-        _currentIndex = 5;
+        _currentIndex = 0;
         _isPressed = false;
         _canMove = true;
     }

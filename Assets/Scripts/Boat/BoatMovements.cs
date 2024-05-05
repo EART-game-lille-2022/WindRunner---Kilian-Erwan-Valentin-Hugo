@@ -19,7 +19,7 @@ public class BoatMovements : MonoBehaviour
     {
         _allureManager = GetComponent<AllureManager>();
         _rigidbody = GetComponent<Rigidbody>();
-        _currentMoveSpeed = _baseMoveSpeed;
+        _currentMoveSpeed = 0;
     }
 
     private void FixedUpdate()

@@ -31,7 +31,7 @@ public class SailSelectorController : MonoBehaviour, IPointerDownHandler, IPoint
             {
                 StartCoroutine(MoveSelector(-1));
             }
-            if (_mouseDelta < 0.1f)
+            if (_mouseDelta < -0.1f)
             {
                 StartCoroutine(MoveSelector(1));
             }
