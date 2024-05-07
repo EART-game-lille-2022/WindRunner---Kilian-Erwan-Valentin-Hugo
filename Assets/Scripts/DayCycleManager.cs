@@ -6,6 +6,7 @@ public class DayCycleManager : MonoBehaviour
     [SerializeField] private Light _directionalLight;
     [SerializeField] private Gradient _ambientColor, _directionalColor, _fogColor;
     [SerializeField, Range(0, 24)] private float _timeOfDay;
+    [SerializeField] private float _timeFlow;
 
     private void Start()
     {
@@ -20,7 +21,7 @@ public class DayCycleManager : MonoBehaviour
     {
         if (Application.isPlaying)
         {
-            _timeOfDay += Time.deltaTime / 30;
+            _timeOfDay += Time.deltaTime / _timeFlow;
             if (_timeOfDay >= 24) { _timeOfDay = 0; }
             UpdateLighting(_timeOfDay / 24);
         }
