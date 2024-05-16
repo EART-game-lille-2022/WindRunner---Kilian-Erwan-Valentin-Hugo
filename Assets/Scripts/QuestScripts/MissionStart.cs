@@ -9,11 +9,6 @@ public class MissionStart : MonoBehaviour
     IEnumerator Start()
     {
         yield return new WaitForSeconds(5);
-        StartQuest();
-    }
-
-    public void StartQuest()
-    {
         missionStart.StartMission();
     }
 }

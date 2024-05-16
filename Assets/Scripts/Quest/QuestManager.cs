@@ -5,7 +5,8 @@ using UnityEngine;
 public class QuestManager : MonoBehaviour
 {
 
-    public RandomObjectSpawner nextSpawn;
+    // public RandomObjectSpawner nextSpawn;
+    public string nextSpawnID = "";
 
     public static int FoundObjectQuest;
     // Start is called before the first frame update
@@ -22,7 +23,12 @@ public class QuestManager : MonoBehaviour
             if (FoundObjectQuest == 3)
         {
             Debug.Log("Gagné !");
-            nextSpawn.NextSpawn();
+            // nextSpawn.NextSpawn();
+            GameObject next = ObjectFinder.Find(nextSpawnID);
+            if(next != null) {
+                RandomObjectSpawner spawner = next.GetComponent<RandomObjectSpawner>();
+                spawner.NextSpawn();
+            } else Debug.LogError("nextSpawn not in scene");
 
         }
 
