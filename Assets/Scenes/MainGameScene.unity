@@ -29433,16 +29433,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2017478275}
     m_Modifications:
-    - target: {fileID: 302603311905305844, guid: b762c306fffb2d4438a0a3ef556f2872,
-        type: 3}
-      propertyPath: _baseMoveSpeed
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 302603311905305844, guid: b762c306fffb2d4438a0a3ef556f2872,
-        type: 3}
-      propertyPath: _rotationSpeed
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 881259559399333743, guid: b762c306fffb2d4438a0a3ef556f2872,
         type: 3}
       propertyPath: m_Enabled
@@ -29623,6 +29613,11 @@ PrefabInstance:
       propertyPath: currentAngle
       value: 120
       objectReference: {fileID: 0}
+    - target: {fileID: 3622274065902029599, guid: b762c306fffb2d4438a0a3ef556f2872,
+        type: 3}
+      propertyPath: m_Name
+      value: Mat_Pivot
+      objectReference: {fileID: 0}
     - target: {fileID: 4586785385501147699, guid: b762c306fffb2d4438a0a3ef556f2872,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -29684,36 +29679,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -3979112398091282673, guid: 935b2136490d63c449be2a8a45dca5de,
         type: 3}
-    - target: {fileID: 5097047469941311939, guid: b762c306fffb2d4438a0a3ef556f2872,
-        type: 3}
-      propertyPath: allures.Array.data[0].targetSailsAngle
-      value: 120
-      objectReference: {fileID: 0}
-    - target: {fileID: 5097047469941311939, guid: b762c306fffb2d4438a0a3ef556f2872,
-        type: 3}
-      propertyPath: allures.Array.data[1].targetSailsAngle
-      value: 102
-      objectReference: {fileID: 0}
-    - target: {fileID: 5097047469941311939, guid: b762c306fffb2d4438a0a3ef556f2872,
-        type: 3}
-      propertyPath: allures.Array.data[2].targetSailsAngle
-      value: 88
-      objectReference: {fileID: 0}
-    - target: {fileID: 5097047469941311939, guid: b762c306fffb2d4438a0a3ef556f2872,
-        type: 3}
-      propertyPath: allures.Array.data[3].targetSailsAngle
-      value: 66
-      objectReference: {fileID: 0}
-    - target: {fileID: 5097047469941311939, guid: b762c306fffb2d4438a0a3ef556f2872,
-        type: 3}
-      propertyPath: allures.Array.data[4].targetSailsAngle
-      value: 48
-      objectReference: {fileID: 0}
-    - target: {fileID: 5097047469941311939, guid: b762c306fffb2d4438a0a3ef556f2872,
-        type: 3}
-      propertyPath: allures.Array.data[5].targetSailsAngle
-      value: 32
-      objectReference: {fileID: 0}
     - target: {fileID: 5097047469941311939, guid: b762c306fffb2d4438a0a3ef556f2872,
         type: 3}
       propertyPath: _onCurrentAllureChange.m_PersistentCalls.m_Calls.Array.data[0].m_Target

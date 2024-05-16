@@ -63,7 +63,7 @@ public class SailOpeningSelector : MonoBehaviour, IPointerDownHandler, IPointerU
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        Debug.Log("Pressed");
+        //Debug.Log("Pressed");
         _isPressed = true;
     }
 

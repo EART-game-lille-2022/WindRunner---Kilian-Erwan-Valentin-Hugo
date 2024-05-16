@@ -13,7 +13,8 @@ public class SailRotation : MonoBehaviour
         {
             float newValue = value.Remap(32, 120, 140, 60);
             transform.DOLocalRotate(new Vector3(0, newValue, 0), 0.5f);
-        } else
+        }
+        else
         {
             transform.DOLocalRotate(new Vector3(0, value, 0), 0.5f);
         }
@@ -23,12 +24,9 @@ public class SailRotation : MonoBehaviour
     {
         _isMirrored = state;
         if (_isMirrored == true)
-        {
             transform.DOScaleZ(-1, 1);
-        } else
-        {
-            transform .DOScaleZ(1, 1);
-        }
+        else
+            transform.DOScaleZ(1, 1);
         RotareSail(currentAngle);
     }
 }

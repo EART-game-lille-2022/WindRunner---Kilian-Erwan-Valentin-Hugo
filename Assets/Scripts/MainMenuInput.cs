@@ -15,7 +15,7 @@ public class MainMenuInput : MonoBehaviour
         if (_storeLastButton == true)
         {
             _lastSelected = EventSystem.current.currentSelectedGameObject;
-            Debug.Log(_lastSelected);
+            //Debug.Log(_lastSelected);
         }
         if (Input.GetJoystickNames().Count() >= 1 && Input.GetJoystickNames()[0] != "")
             EventSystem.current.firstSelectedGameObject = _firstSelected;
@@ -26,11 +26,11 @@ public class MainMenuInput : MonoBehaviour
         if (_storeLastButton == true)
         {
             _lastSelected = EventSystem.current.currentSelectedGameObject;
-            Debug.Log(_lastSelected);
+            //Debug.Log(_lastSelected);
         }
         if (Input.GetJoystickNames().Count() >= 1 && Input.GetJoystickNames()[0] != "")
             EventSystem.current.SetSelectedGameObject(_firstSelected);
-        Debug.Log(EventSystem.current.currentSelectedGameObject);
+        //Debug.Log(EventSystem.current.currentSelectedGameObject);
     }
 
     public void QuitMenu()

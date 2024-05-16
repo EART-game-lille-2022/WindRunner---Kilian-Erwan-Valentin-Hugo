@@ -5,7 +5,6 @@ public class BoatMovements : MonoBehaviour
 {
     [SerializeField] private Transform _rendererTransform;
     [SerializeField][Range(0.1f, 60f)] private float _baseMoveSpeed = 20f;
-    [Header("Physics Data")]
     [SerializeField][Range(0.1f, 60f)] private float _rotationSpeed = 5f;
     [SerializeField] private float _forceMultiplier = 400f;
     private Rigidbody _rigidbody;
@@ -13,7 +12,6 @@ public class BoatMovements : MonoBehaviour
     private AllureManager _allureManager;
     private float _speedMultiplier;
     private float _currentMoveSpeed;
-
 
     private void Start()
     {
