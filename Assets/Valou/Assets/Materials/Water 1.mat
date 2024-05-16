@@ -56,13 +56,14 @@ Material:
     - _FoamSpeed: 0.03
     - _Foam_Amount: 0.8
     - _Foam_CutOff: 1.08
+    - _NoiseLength: 0
     - _NoiseTiling: 593.44
     - _QueueControl: 0
     - _QueueOffset: 0
     - _RippleDensity: 250
     - _RippleSilmness: 8
     - _RippleSpeed: 2
-    - _WaveHeight: 0.14
+    - _WaveHeight: 0
     - _WaveScale: 0.001
     - _WaveSpeed: 85
     m_Colors:
