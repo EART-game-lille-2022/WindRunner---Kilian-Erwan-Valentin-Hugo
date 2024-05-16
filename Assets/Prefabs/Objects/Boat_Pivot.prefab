@@ -474,7 +474,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rendererTransform: {fileID: 5768222354694623368}
   _baseMoveSpeed: 20
-  _rotationSpeed: 20
+  _rotationSpeed: 5
   _forceMultiplier: 400
 --- !u!114 &5097047469941311939
 MonoBehaviour:
@@ -488,37 +488,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17c8d29c6055a68438e3daa05ca08990, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _allureText: {fileID: 0}
-  _sail: {fileID: 3225048596164198566}
+  _matPivot: {fileID: 3225048596164198566}
   allures:
   - name: Vent arriere
     minWindAngle: 150
-    targetSailsAngle: 90
+    targetSailsAngle: 120
     velocity: 0.8
     optimalAngle: 0
   - name: Largue
     minWindAngle: 110
-    targetSailsAngle: 45
+    targetSailsAngle: 102
     velocity: 0.9
     optimalAngle: 30
   - name: Travers
     minWindAngle: 80
-    targetSailsAngle: 30
+    targetSailsAngle: 88
     velocity: 1
     optimalAngle: 60
   - name: Bon plein
     minWindAngle: 45
-    targetSailsAngle: 20
+    targetSailsAngle: 66
     velocity: 0.6
     optimalAngle: 0
   - name: "Pr\xE8s"
     minWindAngle: 30
-    targetSailsAngle: 10
+    targetSailsAngle: 48
     velocity: 0.4
     optimalAngle: 90
   - name: Vent debout
     minWindAngle: 0
-    targetSailsAngle: 1
+    targetSailsAngle: 32
     velocity: 0.25
     optimalAngle: 120
   _onCurrentAllureChange:
@@ -536,16 +535,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _onMirrorSail:
-    m_PersistentCalls:
-      m_Calls: []
-  current:
-    name: 
-    minWindAngle: 0
-    targetSailsAngle: 0
-    velocity: 0
-    optimalAngle: 0
-  intensity: 0
 --- !u!114 &8319839966172020696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -749,7 +738,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentAngle: 90
-  _isMirrored: 0
 --- !u!1 &3670492696289547875
 GameObject:
   m_ObjectHideFlags: 0

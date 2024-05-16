@@ -4,10 +4,10 @@ using UnityEngine.InputSystem;
 public class BoatMovements : MonoBehaviour
 {
     [SerializeField] private Transform _rendererTransform;
-    [SerializeField][Range(0.1f, 60f)] private float _baseMoveSpeed;
+    [SerializeField][Range(0.1f, 60f)] private float _baseMoveSpeed = 20f;
     [Header("Physics Data")]
-    [SerializeField][Range(0.1f, 60f)] private float _rotationSpeed;
-    [SerializeField] private float _forceMultiplier;
+    [SerializeField][Range(0.1f, 60f)] private float _rotationSpeed = 5f;
+    [SerializeField] private float _forceMultiplier = 400f;
     private Rigidbody _rigidbody;
     private Vector3 _rotationAxis;
     private AllureManager _allureManager;
@@ -27,8 +27,13 @@ public class BoatMovements : MonoBehaviour
         _speedMultiplier = _allureManager.GetBoatSpeed(transform);
         float moveSpeed = (_currentMoveSpeed * _speedMultiplier).Abs();
 
-        _rigidbody.AddTorque(0, _rotationAxis.x * _forceMultiplier * _rotationSpeed * Time.fixedDeltaTime, 0);
-        _rigidbody.AddForce(_forceMultiplier * moveSpeed * Time.fixedDeltaTime * _rendererTransform.forward);
+        _rigidbody.AddTorque(0,
+                             _rotationAxis.x * _forceMultiplier * _rotationSpeed * Time.fixedDeltaTime,
+                             0);
+        _rigidbody.AddForce(_forceMultiplier
+                            * moveSpeed
+                            * Time.fixedDeltaTime
+                            * _rendererTransform.forward);
     }
 
     public void RotateBoat(InputAction.CallbackContext callback)
