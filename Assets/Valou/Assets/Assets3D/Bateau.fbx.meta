@@ -3,7 +3,22 @@ guid: 9d009718c32b5f440b5c48af967c5135
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Bato
+    second: {fileID: 2100000, guid: 9c644a6477a9c6e4c995ffd5419e4c35, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Coque
+    second: {fileID: 2100000, guid: b6ce6af5acc365248a775e9bfb80a45e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Voile
+    second: {fileID: 2100000, guid: fd619afe35cde0e4eb5d11114ab62a59, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
